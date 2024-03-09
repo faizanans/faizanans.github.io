@@ -55,7 +55,7 @@ nav a, footer a {
 }
 
 .project-card a {
-    color: #4dc0b5;
+    color: #2B7393;
 }
 
 /* Filter button styles */
@@ -71,7 +71,7 @@ nav a, footer a {
 }
 
 .filter-button.active {
-    background-color: #4dc0b5;
+    background-color: #0D84C7;
     color: #fff;
 }
 
@@ -114,9 +114,11 @@ nav a, footer a {
     90% { color: #8bc34a; }
 }
 
-.test:hover {
-   
-    box-shadow: 0 7px 0px rgba(255, 255, 255, 0.11); /* Add shadow on hover */
+footer {
+    text-align: right;
+    padding: 20px;
+    background-color: #232529; /* light gray background color */
+    color: #fff; /* dark gray text color */
+    font-size: 14px;
+    font-family: Arial, sans-serif;
 }
-
-
