@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="flex items-center justify-between flex-wrap p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <span class="font-semibold text-xl tracking-tight">F A</span>
+        </div>
+        <div class="block lg:hidden">
+            <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+            </button>
+        </div>
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto" id="nav-content">
+            <div class="text-sm lg:flex-grow">
+                <a href="index.html" class="block mt-4 lg:hidden text-teal-200 hover:text-white mr-4">
+                    Home
+                </a>
+                <a href="projects.html" class="block mt-4 lg:hidden text-teal-200 hover:text-white mr-4">
+                    Projects
+                </a>
+                <a href="index.html" class="hidden mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    Home
+                </a>
+                <a href="projects.html" class="hidden mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    Projects
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto py-20">
+        <div class="max-w-4xl mx-auto bg-gray-100 p-8 rounded-lg shadow-md">
+            <h1 class="text-3xl font-semibold text-gray-800 mb-4">Project Name</h1>
+            <p class="text-gray-600 mb-4">Project description goes here. You can provide details about the technologies used, the purpose of the project, and any other relevant information.</p>
+            <p class="text-gray-600 mb-4">You can also include screenshots, demo videos, or links to the project's repository or live demo.</p>
+            <a href="#" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full">View Demo</a>
+            <a href="#" class="ml-4 text-teal-500 hover:text-teal-600 font-bold">View Source Code</a>
+        </div>
+    </div>
+
+    <footer class="text-center py-4">
+        <p class="text-gray-500">© 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
