@@ -70,10 +70,49 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 30%, #4facfe 60%, #00f2fe 100%);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    animation: logoGradient 4s ease-in-out infinite;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    border-radius: 8px;
+    opacity: 0;
+    z-index: -1;
+    filter: blur(15px);
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+    animation-duration: 2s;
+}
+
+.logo:hover::before {
+    opacity: 0.3;
+}
+
+@keyframes logoGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .nav-links {
