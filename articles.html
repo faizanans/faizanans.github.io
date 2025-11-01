@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Faizan Ansari Portfolio</title>
+    <title>Articles - Faizan Ansari</title>
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
@@ -17,7 +17,7 @@
             <div class="logo">Faizan Ansari</div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="#projects">Projects</a>
+                <a href="projects.html">Projects</a>
                 <a href="articles.html">Articles</a>
             </div>
             <div class="mobile-menu" onclick="toggleMobileMenu()">
@@ -28,26 +28,21 @@
         </div>
     </nav>
 
-    <!-- Projects Hero Section -->
-    <section class="projects-hero" id="projects">
-        <h2 class="section-title">My Projects</h2>
-        <div class="filter-container">
-            <button class="filter-button active" onclick="filterProjects('all')" data-category="all">All</button>
-            <button class="filter-button" onclick="filterProjects('technology')" data-category="technology">Technology</button>
-        </div>
+    <!-- Articles Hero Section -->
+    <section class="articles-hero">
+        
     </section>
 
-    <!-- Projects Grid -->
-    <section class="projects-section">
-        <div class="projects-grid" id="project-container">
-            <!-- Project cards will be dynamically added here -->
+    <!-- Articles Section -->
+    <section class="articles-section">
+        <div class="articles-grid" id="articles-grid">
+            <!-- Articles will be dynamically loaded here -->
         </div>
     </section>
-
-    
 
     <script src="scripts/particles.js"></script>
     <script src="scripts/navigation.js"></script>
-    <script src="scripts/projects.js"></script>
+    <script src="scripts/articles-data.js"></script>
+    <script src="scripts/articles.js"></script>
 </body>
 </html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Editor - Faizan Ansari</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Faizan Ansari</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="articles.html">Articles</a>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Editor Container -->
+    <div class="editor-container">
+        <div class="editor-header">
+            <h1>Article Editor</h1>
+            <p class="subtitle">Write your article in Markdown</p>
+        </div>
+
+        <div class="editor-grid">
+            <!-- Editor Panel -->
+            <div class="editor-panel">
+                <h2><i class="fa-solid fa-pen"></i> Editor</h2>
+                <form id="article-form">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required placeholder="Enter article title...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="excerpt">Excerpt</label>
+                        <input type="text" id="excerpt" name="excerpt" required placeholder="Short description...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">Content (Markdown)</label>
+                        <textarea id="content" name="content" required placeholder="Write your article in Markdown..."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Preview Panel -->
+            <div class="editor-panel">
+                <h2><i class="fa-solid fa-eye"></i> Preview</h2>
+                <div id="preview" class="preview-content article-content">
+                    <p style="color: #6b7280; text-align: center;">Start typing to see preview...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-actions">
+            <button type="button" class="cancel-btn" onclick="window.location.href='articles.html'">
+                <i class="fa-solid fa-times"></i> Cancel
+            </button>
+            <button type="button" class="save-btn" onclick="saveDraft()">
+                <i class="fa-solid fa-save"></i> Save Draft
+            </button>
+            <button type="button" class="publish-btn" onclick="publishArticle()">
+                <i class="fa-solid fa-upload"></i> Publish
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Icons by Font Awesome | Designed with ❤️</p>
+    </footer>
+
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="scripts/particles.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/article-editor.js"></script>
+</body>
+</html>

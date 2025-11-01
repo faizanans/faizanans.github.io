@@ -38,10 +38,10 @@ function startDynamicText() {
     setInterval(changeWord, 3000);
 }
 
-// Intersection Observer for timeline animations
-function initTimelineAnimations() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    
+// Intersection Observer for experience cards animations
+function initExperienceCardsAnimation() {
+    const experienceCards = document.querySelectorAll('.experience-card');
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -53,8 +53,8 @@ function initTimelineAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     });
-    
-    timelineItems.forEach(item => {
+
+    experienceCards.forEach(item => {
         item.style.opacity = '0';
         item.style.transform = 'translateY(50px)';
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -109,7 +109,7 @@ function initTypingEffect() {
     const text = subtitle.textContent;
     subtitle.textContent = '';
     subtitle.style.opacity = '1';
-    subtitle.style.borderRight = '2px solid #4facfe';
+    subtitle.style.borderRight = '2px solid #a78bfa';
     
     let index = 0;
     
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
     startDynamicText();
     
     // Initialize animations
-    initTimelineAnimations();
+    initExperienceCardsAnimation();
     initAboutCardsAnimation();
     initParallaxEffect();
     
