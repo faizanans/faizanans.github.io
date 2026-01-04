@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Faizan Ansari</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/skill-animations.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Faizan Ansari</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="articles.html">Articles</a>
+                <a href="experience.html">Experience</a>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">My journey through the tech industry</p>
+            
+            <div class="experience-grid">
+                <!-- Experience Cards -->
+                <div class="experience-card">
+                    <div class="job-title">LEAD SOFTWARE DEVELOPER</div>
+                    <div class="job-meta">
+                        <span><i class="fa-regular fa-calendar"></i> January 2023 - Current</span>
+                        <span><i class="fa-solid fa-building"></i> Plasma - Irving, TX</span>
+                    </div>
+                    <ul class="job-points">
+                        <li>Backend application development, specializing in building and managing robust applications using the Spring Boot and Spring frameworks</li>
+                        <li>Utilizing Java and MySQL for complex software solutions</li>
+                        <li>Managing technical team and code review</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="job-title">SOFTWARE DEVELOPER</div>
+                    <div class="job-meta">
+                        <span><i class="fa-regular fa-calendar"></i> March 2020 - Dec 2022</span>
+                        <span><i class="fa-solid fa-building"></i> MicroAI Plasma - Irving, TX</span>
+                    </div>
+                    <ul class="job-points">
+                        <li>Proficient in backend application development, specializing in building and managing robust applications using the Spring Boot and Spring frameworks</li>
+                        <li>Experienced in utilizing Java and MySQL for complex software solutions</li>
+                        <li>Collaborative team player, contributing to team efforts in designing and implementing innovative software solutions</li>
+                        <li>Skilled in developing intricate workflows, adept at integrating event-driven processes from various systems</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="job-title">I.T. TECHNICIAN</div>
+                    <div class="job-meta">
+                        <span><i class="fa-regular fa-calendar"></i> Nov 2016 - Dec 2020</span>
+                        <span><i class="fa-solid fa-building"></i> JCPenney Head Office - Plano, TX</span>
+                    </div>
+                    <ul class="job-points">
+                        <li>Serve as the primary point of contact for technology-related issues, addressing inquiries via phone, email, or web</li>
+                        <li>Provide comprehensive support for network, email, computer systems (hardware/software), and mainframe/midrange operations</li>
+                        <li>Expert in troubleshooting, analyzing, resolving, tracking, and documenting various technical problems</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="job-title">TECHNICAL SALES INTERN</div>
+                    <div class="job-meta">
+                        <span><i class="fa-regular fa-calendar"></i> May 2016 - Aug 2016</span>
+                        <span><i class="fa-solid fa-building"></i> Cisco Systems - San Jose, CA</span>
+                    </div>
+                    <ul class="job-points">
+                        <li>Developed expertise in NX-OS through hands-on experience with Nexus 9k switches</li>
+                        <li>Authored Python scripts to automate specific configuration tasks on switches, enhancing efficiency</li>
+                        <li>Conducted training sessions for Cisco partners, focusing on the NX-OS environment</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="job-title">ANDROID APP DEVELOPER INTERN</div>
+                    <div class="job-meta">
+                        <span><i class="fa-regular fa-calendar"></i> Aug 2015 - Dec 2015</span>
+                        <span><i class="fa-solid fa-building"></i> El Centro College, TX</span>
+                    </div>
+                    <ul class="job-points">
+                        <li>Design an application for internal use</li>
+                        <li>Develop a mobile application using Java and Android Studio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/particles.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script>
+        // Simple animation for experience cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const experienceCards = document.querySelectorAll('.experience-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            experienceCards.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
