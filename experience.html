@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience - Faizan Ansari</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/skill-animations.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/pages.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -34,73 +34,333 @@
     <section class="experience-section">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            <p class="section-subtitle">My journey through the tech industry</p>
+            <p class="section-subtitle">My journey through software development and engineering</p>
             
-            <div class="experience-grid">
-                <!-- Experience Cards -->
-                <div class="experience-card">
-                    <div class="job-title">LEAD SOFTWARE DEVELOPER</div>
-                    <div class="job-meta">
-                        <span><i class="fa-regular fa-calendar"></i> January 2023 - Current</span>
-                        <span><i class="fa-solid fa-building"></i> Plasma - Irving, TX</span>
+            <div class="experience-layout">
+                
+                <!-- SOLID Principles Section -->
+                <div class="solid-principles">
+                    <h3 class="subsection-title" style="margin-bottom: 1.5rem;">SOLID Principles Expert</h3>
+                    <div class="solid-grid">
+                        <div class="solid-card">
+                            <div class="solid-letter">S</div>
+                            <div class="solid-name">Single Responsibility</div>
+                            <div class="solid-brief">One class, one purpose</div>
+                        </div>
+                        <div class="solid-card">
+                            <div class="solid-letter">O</div>
+                            <div class="solid-name">Open/Closed</div>
+                            <div class="solid-brief">Open for extension, closed for modification</div>
+                        </div>
+                        <div class="solid-card">
+                            <div class="solid-letter">L</div>
+                            <div class="solid-name">Liskov Substitution</div>
+                            <div class="solid-brief">Subtypes must be substitutable</div>
+                        </div>
+                        <div class="solid-card">
+                            <div class="solid-letter">I</div>
+                            <div class="solid-name">Interface Segregation</div>
+                            <div class="solid-brief">Many specific interfaces</div>
+                        </div>
+                        <div class="solid-card">
+                            <div class="solid-letter">D</div>
+                            <div class="solid-name">Dependency Inversion</div>
+                            <div class="solid-brief">Depend on abstractions</div>
+                        </div>
                     </div>
-                    <ul class="job-points">
-                        <li>Backend application development, specializing in building and managing robust applications using the Spring Boot and Spring frameworks</li>
-                        <li>Utilizing Java and MySQL for complex software solutions</li>
-                        <li>Managing technical team and code review</li>
-                    </ul>
                 </div>
 
-                <div class="experience-card">
-                    <div class="job-title">SOFTWARE DEVELOPER</div>
-                    <div class="job-meta">
-                        <span><i class="fa-regular fa-calendar"></i> March 2020 - Dec 2022</span>
-                        <span><i class="fa-solid fa-building"></i> MicroAI Plasma - Irving, TX</span>
+                <!-- Design Patterns Section -->
+                <div>
+                    <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Design Patterns Expertise</h3>
+                    <div class="patterns-grid">
+                        <!-- Singleton Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">🔷</div>
+                                <div>
+                                    <div class="pattern-title">Singleton</div>
+                                    <div class="pattern-category">Creational</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Ensures a class has only one instance with global access point</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Configuration</span>
+                                <span class="use-tag">Database Connections</span>
+                            </div>
+                        </div>
+
+                        <!-- Factory Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">🏭</div>
+                                <div>
+                                    <div class="pattern-title">Factory</div>
+                                    <div class="pattern-category">Creational</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Creates objects without specifying exact class to create</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Object Creation</span>
+                                <span class="use-tag">Polymorphism</span>
+                            </div>
+                        </div>
+
+                        <!-- Builder Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">🔨</div>
+                                <div>
+                                    <div class="pattern-title">Builder</div>
+                                    <div class="pattern-category">Creational</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Constructs complex objects step by step</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Complex Objects</span>
+                                <span class="use-tag">Immutability</span>
+                            </div>
+                        </div>
+
+                        <!-- Observer Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">👁️</div>
+                                <div>
+                                    <div class="pattern-title">Observer</div>
+                                    <div class="pattern-category">Behavioral</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Defines subscription mechanism to notify multiple objects</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Event Systems</span>
+                                <span class="use-tag">Pub/Sub</span>
+                            </div>
+                        </div>
+
+                        <!-- Strategy Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">🎯</div>
+                                <div>
+                                    <div class="pattern-title">Strategy</div>
+                                    <div class="pattern-category">Behavioral</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Defines family of algorithms, makes them interchangeable</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Algorithms</span>
+                                <span class="use-tag">Flexibility</span>
+                            </div>
+                        </div>
+
+                        <!-- Adapter Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">🔌</div>
+                                <div>
+                                    <div class="pattern-title">Adapter</div>
+                                    <div class="pattern-category">Structural</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Allows incompatible interfaces to work together</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Integration</span>
+                                <span class="use-tag">Legacy Code</span>
+                            </div>
+                        </div>
+
+                        <!-- Decorator Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">🎨</div>
+                                <div>
+                                    <div class="pattern-title">Decorator</div>
+                                    <div class="pattern-category">Structural</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Adds new functionality to objects dynamically</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Extend Behavior</span>
+                                <span class="use-tag">Composition</span>
+                            </div>
+                        </div>
+
+                        <!-- Repository Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">💾</div>
+                                <div>
+                                    <div class="pattern-title">Repository</div>
+                                    <div class="pattern-category">Architectural</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Mediates between domain and data mapping layers</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Data Access</span>
+                                <span class="use-tag">Separation</span>
+                            </div>
+                        </div>
+
+                        <!-- MVC Pattern -->
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <div class="pattern-icon">🏗️</div>
+                                <div>
+                                    <div class="pattern-title">MVC</div>
+                                    <div class="pattern-category">Architectural</div>
+                                </div>
+                            </div>
+                            <div class="pattern-description">Separates application into Model, View, Controller</div>
+                            <div class="pattern-uses">
+                                <span class="use-tag">Web Apps</span>
+                                <span class="use-tag">Separation</span>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="job-points">
-                        <li>Proficient in backend application development, specializing in building and managing robust applications using the Spring Boot and Spring frameworks</li>
-                        <li>Experienced in utilizing Java and MySQL for complex software solutions</li>
-                        <li>Collaborative team player, contributing to team efforts in designing and implementing innovative software solutions</li>
-                        <li>Skilled in developing intricate workflows, adept at integrating event-driven processes from various systems</li>
-                    </ul>
                 </div>
 
-                <div class="experience-card">
-                    <div class="job-title">I.T. TECHNICIAN</div>
-                    <div class="job-meta">
-                        <span><i class="fa-regular fa-calendar"></i> Nov 2016 - Dec 2020</span>
-                        <span><i class="fa-solid fa-building"></i> JCPenney Head Office - Plano, TX</span>
+                <!-- Professional Timeline -->
+                <div class="experience-timeline">
+                    <div class="timeline-header">
+                        <h3>Professional Timeline</h3>
+                        <p>Career progression and achievements</p>
                     </div>
-                    <ul class="job-points">
-                        <li>Serve as the primary point of contact for technology-related issues, addressing inquiries via phone, email, or web</li>
-                        <li>Provide comprehensive support for network, email, computer systems (hardware/software), and mainframe/midrange operations</li>
-                        <li>Expert in troubleshooting, analyzing, resolving, tracking, and documenting various technical problems</li>
-                    </ul>
-                </div>
 
-                <div class="experience-card">
-                    <div class="job-title">TECHNICAL SALES INTERN</div>
-                    <div class="job-meta">
-                        <span><i class="fa-regular fa-calendar"></i> May 2016 - Aug 2016</span>
-                        <span><i class="fa-solid fa-building"></i> Cisco Systems - San Jose, CA</span>
+                    <!-- Experience Item 1 -->
+                    <div class="experience-item">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">LEAD SOFTWARE DEVELOPER</div>
+                                    <div class="job-company">
+                                        <i class="fa-solid fa-building"></i>
+                                        <span>Plasma - Irving, TX</span>
+                                    </div>
+                                </div>
+                                <div class="job-meta">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>Jan 2023 - Present</span>
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <ul class="job-points">
+                                    <li>Backend application development, specializing in building and managing robust applications using the Spring Boot and Spring frameworks</li>
+                                    <li>Utilizing Java and MySQL for complex software solutions</li>
+                                    <li>Managing technical team and code review</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="job-points">
-                        <li>Developed expertise in NX-OS through hands-on experience with Nexus 9k switches</li>
-                        <li>Authored Python scripts to automate specific configuration tasks on switches, enhancing efficiency</li>
-                        <li>Conducted training sessions for Cisco partners, focusing on the NX-OS environment</li>
-                    </ul>
-                </div>
 
-                <div class="experience-card">
-                    <div class="job-title">ANDROID APP DEVELOPER INTERN</div>
-                    <div class="job-meta">
-                        <span><i class="fa-regular fa-calendar"></i> Aug 2015 - Dec 2015</span>
-                        <span><i class="fa-solid fa-building"></i> El Centro College, TX</span>
+                    <!-- Experience Item 2 -->
+                    <div class="experience-item">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">SOFTWARE DEVELOPER</div>
+                                    <div class="job-company">
+                                        <i class="fa-solid fa-building"></i>
+                                        <span>MicroAI Plasma - Irving, TX</span>
+                                    </div>
+                                </div>
+                                <div class="job-meta">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>Mar 2020 - Dec 2022</span>
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <ul class="job-points">
+                                    <li>Proficient in backend application development, specializing in building and managing robust applications using the Spring Boot and Spring frameworks</li>
+                                    <li>Experienced in utilizing Java and MySQL for complex software solutions</li>
+                                    <li>Collaborative team player, contributing to team efforts in designing and implementing innovative software solutions</li>
+                                    <li>Skilled in developing intricate workflows, adept at integrating event-driven processes from various systems</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="job-points">
-                        <li>Design an application for internal use</li>
-                        <li>Develop a mobile application using Java and Android Studio</li>
-                    </ul>
+
+                    <!-- Experience Item 3 -->
+                    <div class="experience-item">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">I.T. TECHNICIAN</div>
+                                    <div class="job-company">
+                                        <i class="fa-solid fa-building"></i>
+                                        <span>JCPenney Head Office - Plano, TX</span>
+                                    </div>
+                                </div>
+                                <div class="job-meta">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>Nov 2016 - Dec 2020</span>
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <ul class="job-points">
+                                    <li>Serve as the primary point of contact for technology-related issues, addressing inquiries via phone, email, or web</li>
+                                    <li>Provide comprehensive support for network, email, computer systems (hardware/software), and mainframe/midrange operations</li>
+                                    <li>Expert in troubleshooting, analyzing, resolving, tracking, and documenting various technical problems</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 4 -->
+                    <div class="experience-item">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">TECHNICAL SALES INTERN</div>
+                                    <div class="job-company">
+                                        <i class="fa-solid fa-building"></i>
+                                        <span>Cisco Systems - San Jose, CA</span>
+                                    </div>
+                                </div>
+                                <div class="job-meta">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>May 2016 - Aug 2016</span>
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <ul class="job-points">
+                                    <li>Developed expertise in NX-OS through hands-on experience with Nexus 9k switches</li>
+                                    <li>Authored Python scripts to automate specific configuration tasks on switches, enhancing efficiency</li>
+                                    <li>Conducted training sessions for Cisco partners, focusing on the NX-OS environment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 5 -->
+                    <div class="experience-item">
+                        <div class="timeline-dot"></div>
+                        <div class="experience-card">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">ANDROID APP DEVELOPER INTERN</div>
+                                    <div class="job-company">
+                                        <i class="fa-solid fa-building"></i>
+                                        <span>El Centro College, TX</span>
+                                    </div>
+                                </div>
+                                <div class="job-meta">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>Aug 2015 - Dec 2015</span>
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <ul class="job-points">
+                                    <li>Design an application for internal use</li>
+                                    <li>Develop a mobile application using Java and Android Studio</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -109,15 +369,18 @@
     <script src="scripts/particles.js"></script>
     <script src="scripts/navigation.js"></script>
     <script>
-        // Simple animation for experience cards on scroll
+        // Enhanced scroll animation for experience cards
         document.addEventListener('DOMContentLoaded', function() {
-            const experienceCards = document.querySelectorAll('.experience-card');
+            const experienceItems = document.querySelectorAll('.experience-item');
+            const patternCards = document.querySelectorAll('.pattern-card');
+            const solidCards = document.querySelectorAll('.solid-card');
 
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 150);
                     }
                 });
             }, {
@@ -125,11 +388,45 @@
                 rootMargin: '0px 0px -50px 0px'
             });
 
-            experienceCards.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(50px)';
-                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            experienceItems.forEach(item => {
                 observer.observe(item);
+            });
+
+            // Animate pattern cards on scroll
+            const patternObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            patternCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+                patternObserver.observe(card);
+            });
+
+            // Animate SOLID cards
+            solidCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+                
+                const solidObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                solidObserver.observe(card);
             });
         });
     </script>
