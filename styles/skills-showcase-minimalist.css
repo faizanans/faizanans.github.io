@@ -26,13 +26,13 @@
     background: linear-gradient(90deg, #4facfe, #00f2fe);
 }
 
-/* ===== COMPACT SKILL DEMO CARDS ===== */
+/* ===== MINIMALIST DEMO CARDS ===== */
 .skill-demo {
-    background: linear-gradient(145deg, rgba(26, 27, 46, 0.6), rgba(15, 20, 25, 0.7));
-    border: 1px solid rgba(79, 172, 254, 0.15);
-    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(26, 27, 46, 0.4), rgba(15, 20, 25, 0.5));
+    border: 1px solid rgba(79, 172, 254, 0.1);
+    border-radius: 20px;
     padding: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
@@ -41,16 +41,16 @@
 
 .skill-demo:hover {
     border-color: rgba(79, 172, 254, 0.3);
-    box-shadow: 0 8px 30px rgba(79, 172, 254, 0.2);
+    box-shadow: 0 8px 30px rgba(79, 172, 254, 0.15);
 }
 
 .demo-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 1.75rem;
-    background: rgba(79, 172, 254, 0.03);
-    border-bottom: 1px solid rgba(79, 172, 254, 0.1);
+    padding: 1.5rem 2rem;
+    background: rgba(79, 172, 254, 0.02);
+    border-bottom: 1px solid rgba(79, 172, 254, 0.08);
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -64,55 +64,49 @@
 }
 
 .header-left > i {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #4facfe;
-    filter: drop-shadow(0 0 5px rgba(79, 172, 254, 0.3));
+    filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.3));
 }
 
 .header-left h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #ffffff;
     margin: 0;
     font-weight: 600;
 }
 
-.demo-description {
-    color: #9ca3af;
-    font-size: 0.8rem;
-    margin: 0;
-    display: none;
-}
-
 .demo-content {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .demo-controls {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
 }
 
 .demo-btn {
-    background: rgba(79, 172, 254, 0.1);
+    background: rgba(79, 172, 254, 0.08);
     color: #4facfe;
     border: 1px solid rgba(79, 172, 254, 0.2);
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
     white-space: nowrap;
 }
 
 .demo-btn:hover {
-    background: rgba(79, 172, 254, 0.2);
+    background: rgba(79, 172, 254, 0.15);
     border-color: rgba(79, 172, 254, 0.4);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2);
 }
 
 .demo-btn:active {
@@ -120,399 +114,413 @@
 }
 
 .demo-btn i {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
 }
 
-/* ===== REDIS COMPACT DEMO ===== */
-.demo-split {
+/* ===== REDIS MINIMALIST DEMO ===== */
+.redis-container {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
 }
 
-.cache-layer {
-    background: rgba(220, 56, 45, 0.05);
-    border: 1px solid rgba(220, 56, 45, 0.2);
-    border-radius: 12px;
-    padding: 1rem;
-    min-height: 150px;
+.cache-visualization {
+    background: rgba(10, 11, 15, 0.4);
+    border: 1px solid rgba(79, 172, 254, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-height: 200px;
 }
 
-.cache-header {
+.cache-title-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(220, 56, 45, 0.15);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(79, 172, 254, 0.1);
 }
 
-.cache-title {
-    color: #dc382d;
+.cache-title-bar h4 {
+    color: #4facfe;
+    font-size: 0.95rem;
     font-weight: 600;
-    font-size: 0.9rem;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
 }
 
 .cache-count {
     color: #9ca3af;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
+    background: rgba(79, 172, 254, 0.08);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
 }
 
-.cached-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-content: flex-start;
-    min-height: 80px;
+.cache-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+    min-height: 120px;
 }
 
 .cache-item {
-    background: linear-gradient(135deg, rgba(220, 56, 45, 0.15), rgba(220, 56, 45, 0.08));
-    border: 1px solid rgba(220, 56, 45, 0.3);
-    padding: 0.4rem 0.7rem;
-    border-radius: 6px;
-    color: #dc382d;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.12), rgba(79, 172, 254, 0.06));
+    border: 1px solid rgba(79, 172, 254, 0.25);
+    padding: 0.75rem;
+    border-radius: 10px;
+    color: #4facfe;
     font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    animation: cacheItemAppear 0.3s ease;
-    transition: all 0.2s ease;
+    text-align: center;
+    animation: cacheItemFadeIn 0.4s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .cache-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(220, 56, 45, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(79, 172, 254, 0.1));
 }
 
-@keyframes cacheItemAppear {
-    0% {
+@keyframes cacheItemFadeIn {
+    from {
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.8) translateY(10px);
     }
-    100% {
+    to {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
     }
 }
 
-.stats-panel {
+.cache-stats {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
 }
 
-.stat-box {
+.stat-card {
     background: rgba(79, 172, 254, 0.05);
-    border: 1px solid rgba(79, 172, 254, 0.15);
-    border-radius: 10px;
-    padding: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: all 0.2s ease;
+    border: 1px solid rgba(79, 172, 254, 0.1);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
 }
 
-.stat-box:hover {
+.stat-card:hover {
     border-color: rgba(79, 172, 254, 0.3);
     background: rgba(79, 172, 254, 0.08);
-}
-
-.stat-icon {
-    font-size: 1.5rem;
-}
-
-.stat-content {
-    flex: 1;
 }
 
 .stat-label {
     color: #9ca3af;
     font-size: 0.75rem;
-    margin-bottom: 0.15rem;
-}
-
-.stat-value {
-    color: #00f2fe;
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-/* ===== KAFKA COMPACT DEMO ===== */
-.kafka-pipeline {
-    display: grid;
-    grid-template-columns: 120px 1fr 120px;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.kafka-component {
-    background: rgba(79, 172, 254, 0.08);
-    border: 1px solid rgba(79, 172, 254, 0.2);
-    border-radius: 10px;
-    padding: 0.75rem;
-    text-align: center;
-    color: #4facfe;
-    transition: all 0.2s ease;
-}
-
-.kafka-component:hover {
-    border-color: rgba(79, 172, 254, 0.4);
-}
-
-.kafka-component i {
-    font-size: 1.2rem;
-    display: block;
-    margin-bottom: 0.3rem;
-}
-
-.kafka-component span {
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.topic {
-    min-height: 100px;
-    padding: 0.75rem;
-}
-
-.topic-header {
-    font-size: 0.75rem;
-    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
 
-.message-queue {
-    background: rgba(10, 11, 15, 0.4);
-    border-radius: 8px;
-    padding: 0.75rem;
-    min-height: 60px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(79, 172, 254, 0.1);
+.stat-value {
+    color: #00f2fe;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
-.queue-empty {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #6b7280;
-    font-size: 0.75rem;
-    font-style: italic;
+/* ===== KAFKA MINIMALIST DEMO ===== */
+.kafka-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.kafka-pipeline {
+    display: grid;
+    grid-template-columns: 140px 1fr 140px;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.kafka-node {
+    background: rgba(79, 172, 254, 0.08);
+    border: 1px solid rgba(79, 172, 254, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.kafka-node:hover {
+    border-color: rgba(79, 172, 254, 0.4);
+    background: rgba(79, 172, 254, 0.12);
+}
+
+.kafka-node i {
+    font-size: 1.8rem;
+    color: #4facfe;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.kafka-node span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #9ca3af;
+}
+
+.kafka-stream {
+    background: rgba(10, 11, 15, 0.4);
+    border: 1px solid rgba(79, 172, 254, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stream-header {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4facfe;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stream-content {
+    position: relative;
+    height: 80px;
 }
 
 .kafka-message {
-    background: linear-gradient(135deg, #00f2fe, #4facfe);
+    position: absolute;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
     color: #0a0b0f;
-    padding: 0.35rem 0.7rem;
-    border-radius: 6px;
-    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
     font-weight: 700;
     white-space: nowrap;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: messageFlow 2s ease-in-out;
+    animation: messageFlow 3s ease-in-out forwards;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
 }
 
 @keyframes messageFlow {
     0% {
         left: -10%;
         opacity: 0;
+        transform: translateY(-50%) scale(0.8);
     }
-    15%, 85% {
+    15% {
         opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+    85% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
     }
     100% {
         left: 110%;
         opacity: 0;
+        transform: translateY(-50%) scale(0.8);
     }
 }
 
 .kafka-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    background: rgba(79, 172, 254, 0.03);
-    padding: 1rem;
-    border-radius: 10px;
+    gap: 1.5rem;
 }
 
-.metric-item {
+.metric-card {
+    background: rgba(79, 172, 254, 0.05);
+    border: 1px solid rgba(79, 172, 254, 0.1);
+    border-radius: 12px;
+    padding: 1.25rem;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    border-color: rgba(79, 172, 254, 0.3);
+    background: rgba(79, 172, 254, 0.08);
 }
 
 .metric-label {
     color: #9ca3af;
-    font-size: 0.7rem;
-    display: block;
-    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
 }
 
 .metric-value {
     color: #00f2fe;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
 }
 
-/* ===== DATABASE COMPACT DEMO ===== */
-.sql-workspace {
+/* ===== DATABASE MINIMALIST DEMO ===== */
+.database-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    min-height: 200px;
+    gap: 1.5rem;
 }
 
-.sql-editor, .sql-results {
-    background: rgba(10, 11, 15, 0.5);
-    border: 1px solid rgba(79, 172, 254, 0.2);
-    border-radius: 10px;
+.sql-panel {
+    background: rgba(10, 11, 15, 0.4);
+    border: 1px solid rgba(79, 172, 254, 0.1);
+    border-radius: 12px;
     overflow: hidden;
 }
 
-.editor-header, .results-header {
-    background: rgba(79, 172, 254, 0.1);
-    padding: 0.5rem 0.75rem;
-    color: #4facfe;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-bottom: 1px solid rgba(79, 172, 254, 0.2);
+.panel-header {
+    background: rgba(79, 172, 254, 0.08);
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid rgba(79, 172, 254, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.status-indicator {
-    background: rgba(0, 242, 254, 0.15);
+.panel-title {
+    color: #4facfe;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.panel-status {
+    background: rgba(0, 242, 254, 0.1);
     color: #00f2fe;
-    padding: 0.15rem 0.5rem;
-    border-radius: 10px;
-    font-size: 0.65rem;
-}
-
-.result-count {
-    color: #9ca3af;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
     font-size: 0.7rem;
+    font-weight: 600;
 }
 
-.editor-content {
-    padding: 0.75rem;
+.panel-content {
+    padding: 1.25rem;
+    min-height: 200px;
+}
+
+.query-display {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #4facfe;
+    line-height: 1.8;
+}
+
+.results-display {
     font-family: 'Courier New', monospace;
     font-size: 0.75rem;
 }
 
-.query-text {
-    color: #4facfe;
-}
-
-.results-content {
-    padding: 0.75rem;
-    overflow: auto;
-    max-height: 150px;
-}
-
 .results-placeholder {
     color: #6b7280;
-    font-style: italic;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.75rem;
+    padding: 3rem 1rem;
+    font-style: italic;
 }
 
 .result-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: 'Courier New', monospace;
-    font-size: 0.7rem;
 }
 
 .result-table th {
-    background: rgba(79, 172, 254, 0.15);
+    background: rgba(79, 172, 254, 0.1);
     color: #4facfe;
-    padding: 0.4rem;
+    padding: 0.75rem;
     text-align: left;
     border: 1px solid rgba(79, 172, 254, 0.2);
     font-weight: 600;
+    font-size: 0.75rem;
 }
 
 .result-table td {
     color: #d1d5db;
-    padding: 0.4rem;
-    border: 1px solid rgba(79, 172, 254, 0.15);
+    padding: 0.75rem;
+    border: 1px solid rgba(79, 172, 254, 0.1);
+    font-size: 0.75rem;
 }
 
 .result-table tr:hover td {
-    background: rgba(79, 172, 254, 0.08);
+    background: rgba(79, 172, 254, 0.05);
 }
 
 .query-status {
-    color: #00f2fe;
-    margin-top: 0.5rem;
-    font-size: 0.7rem;
-    padding: 0.5rem;
-    background: rgba(0, 242, 254, 0.08);
-    border-radius: 6px;
-    border-left: 2px solid #00f2fe;
+    color: #10b981;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(16, 185, 129, 0.08);
+    border-radius: 8px;
+    border-left: 3px solid #10b981;
 }
 
-/* ===== SPRING COMPACT DEMO ===== */
-.spring-architecture {
-    padding: 0.5rem 0;
+/* ===== SPRING MINIMALIST DEMO ===== */
+.spring-container {
+    padding: 1rem 0;
 }
 
-.container-box {
-    background: rgba(109, 179, 63, 0.03);
-    border: 1px solid rgba(109, 179, 63, 0.2);
-    border-radius: 12px;
-    padding: 1.5rem;
+.spring-diagram {
+    background: rgba(109, 179, 63, 0.02);
+    border: 1px solid rgba(109, 179, 63, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
 }
 
-.container-title {
+.diagram-title {
     text-align: center;
     color: #6db33f;
     font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
 }
 
-.beans-flow {
+.beans-pipeline {
     display: grid;
     grid-template-columns: 1fr auto 1fr auto 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
 }
 
-.bean-node {
+.bean-box {
     background: linear-gradient(145deg, rgba(109, 179, 63, 0.1), rgba(109, 179, 63, 0.05));
-    border: 1.5px solid rgba(109, 179, 63, 0.4);
-    border-radius: 10px;
-    padding: 1rem 0.75rem;
+    border: 2px solid rgba(109, 179, 63, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
     text-align: center;
-    min-width: 120px;
-    transition: all 0.3s ease;
+    min-width: 140px;
+    transition: all 0.4s ease;
 }
 
-.bean-node:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(109, 179, 63, 0.3);
+.bean-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(109, 179, 63, 0.25);
+    border-color: rgba(109, 179, 63, 0.5);
 }
 
-.annotation {
+.bean-annotation {
     display: block;
     color: #00f2fe;
-    font-size: 0.7rem;
-    margin-bottom: 0.4rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
     font-family: 'Courier New', monospace;
     font-weight: 600;
 }
@@ -520,57 +528,45 @@
 .bean-name {
     color: #6db33f;
     font-weight: 600;
-    font-size: 0.85rem;
-    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
 }
 
-.bean-details {
+.bean-type {
     color: #9ca3af;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
 }
 
-.flow-arrow {
+.dependency-arrow {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.35rem;
 }
 
-.arrow-line {
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    position: relative;
+.arrow-icon {
+    font-size: 1.5rem;
+    color: #4facfe;
 }
 
-.arrow-line::after {
-    content: '▶';
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #00f2fe;
-    font-size: 0.7rem;
-}
-
-.arrow-label {
+.arrow-text {
     color: #9ca3af;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-style: italic;
 }
 
-.lifecycle-status {
+.spring-status {
     text-align: center;
     color: #6db33f;
-    margin-top: 1.5rem;
-    padding: 0.5rem;
+    margin-top: 2rem;
+    padding: 1rem;
     background: rgba(109, 179, 63, 0.08);
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
-/* ===== COMPACT PROGRAMMING LANGUAGES ===== */
+/* ===== PROGRAMMING LANGUAGES ===== */
 .languages-section {
     margin: 3rem 0 2rem;
 }
@@ -583,10 +579,10 @@
 }
 
 .language-card {
-    background: linear-gradient(145deg, rgba(26, 27, 46, 0.6), rgba(15, 20, 25, 0.7));
-    border: 1px solid rgba(79, 172, 254, 0.15);
+    background: linear-gradient(145deg, rgba(26, 27, 46, 0.4), rgba(15, 20, 25, 0.5));
+    border: 1px solid rgba(79, 172, 254, 0.1);
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 2rem;
     text-align: center;
     transition: all 0.3s ease;
 }
@@ -598,14 +594,15 @@
 }
 
 .lang-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.25rem;
     transition: all 0.4s ease;
     display: inline-block;
 }
 
+
 .language-card:hover .lang-icon {
-    transform: scale(1.1);
+    transform: rotateY(360deg) scale(1.7);
     filter: drop-shadow(0 0 15px currentColor);
 }
 
@@ -615,33 +612,33 @@
 
 .language-card h4 {
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 0.75rem;
     font-weight: 600;
 }
 
 .lang-description {
     color: #9ca3af;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
     line-height: 1.5;
 }
 
 .code-snippet {
     background: rgba(10, 11, 15, 0.7);
-    border: 1px solid rgba(79, 172, 254, 0.2);
-    border-radius: 8px;
-    padding: 0.75rem;
-    margin: 1rem 0;
+    border: 1px solid rgba(79, 172, 254, 0.15);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1.25rem 0;
     text-align: left;
     font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 }
 
 .code-snippet code {
     display: block;
     color: #9ca3af;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 .keyword { color: #c678dd; }
@@ -649,67 +646,30 @@
 .string { color: #98c379; }
 .comment { color: #5c6370; }
 
-.proficiency-indicator {
-    margin-top: 1rem;
+.proficiency-level {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1.25rem 0 0.5rem;
 }
 
-.proficiency-bar {
-    height: 6px;
-    background: rgba(79, 172, 254, 0.1);
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 0.5rem;
+.proficiency-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(79, 172, 254, 0.2);
+    transition: all 0.3s ease;
 }
 
-.proficiency-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    border-radius: 6px;
-    transition: width 1s ease;
+.proficiency-dot.active {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
 }
 
 .proficiency-text {
     color: #9ca3af;
-    font-size: 0.75rem;
-}
-
-/* ===== COMPACT TECHNOLOGY ECOSYSTEM ===== */
-.tech-ecosystem {
-    margin: 3rem 0 2rem;
-}
-
-.tech-categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.tech-category {
-    background: rgba(26, 27, 46, 0.4);
-    border: 1px solid rgba(79, 172, 254, 0.15);
-    border-radius: 12px;
-    padding: 1.25rem;
-    transition: all 0.2s ease;
-}
-
-.tech-category:hover {
-    border-color: rgba(79, 172, 254, 0.3);
-    transform: translateY(-3px);
-}
-
-.category-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    color: #4facfe;
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.category-header i {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
 }
 
 /* ===== TECHNOLOGY ECOSYSTEM ===== */
@@ -722,15 +682,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 3rem 1rem;
     min-height: 400px;
     position: relative;
 }
 
 .tech-badge {
-    background: linear-gradient(145deg, rgba(79, 172, 254, 0.15), rgba(167, 139, 250, 0.15));
-    border: 2px solid rgba(79, 172, 254, 0.4);
+    background: linear-gradient(145deg, rgba(79, 172, 254, 0.1), rgba(167, 139, 250, 0.1));
+    border: 2px solid rgba(79, 172, 254, 0.3);
     padding: 1rem 1.75rem;
     border-radius: 50px;
     display: flex;
@@ -769,8 +729,8 @@
 .tech-badge:hover {
     transform: translateY(-10px) scale(1.15);
     border-color: rgba(79, 172, 254, 0.8);
-    background: linear-gradient(145deg, rgba(79, 172, 254, 0.25), rgba(167, 139, 250, 0.25));
-    box-shadow: 0 15px 40px rgba(79, 172, 254, 0.5);
+    background: linear-gradient(145deg, rgba(79, 172, 254, 0.2), rgba(167, 139, 250, 0.2));
+    box-shadow: 0 15px 40px rgba(79, 172, 254, 0.4);
     z-index: 10;
 }
 
@@ -801,7 +761,8 @@
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
-    .demo-split {
+    .redis-container,
+    .database-container {
         grid-template-columns: 1fr;
     }
     
@@ -810,28 +771,33 @@
         gap: 1.5rem;
     }
     
-    .sql-workspace {
-        grid-template-columns: 1fr;
-    }
-    
-    .beans-flow {
+    .beans-pipeline {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
-    .flow-arrow {
+    .dependency-arrow {
         transform: rotate(90deg);
     }
 }
 
 @media (max-width: 768px) {
+    .skills-showcase {
+        padding: 4rem 1rem 2rem;
+    }
+
     .demo-header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 1.25rem 1.5rem;
     }
     
     .header-left {
         min-width: 100%;
+    }
+    
+    .demo-content {
+        padding: 1.5rem;
     }
     
     .demo-controls {
@@ -841,15 +807,19 @@
     .demo-btn {
         flex: 1;
         justify-content: center;
-        min-width: 120px;
     }
     
-    .kafka-metrics {
+    .kafka-metrics,
+    .cache-stats {
         grid-template-columns: 1fr;
     }
     
     .languages-grid {
         grid-template-columns: 1fr;
+    }
+
+    .skill-demo {
+        margin-bottom: 2rem;
     }
     
     .floating-tech-cloud {
@@ -868,70 +838,13 @@
     }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 1024px) {
-    .demo-split {
-        grid-template-columns: 1fr;
+@media (max-width: 480px) {
+    .cache-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
     
-    .kafka-pipeline {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .sql-workspace {
-        grid-template-columns: 1fr;
-    }
-    
-    .beans-flow {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .flow-arrow {
-        transform: rotate(90deg);
-    }
-}
-
-@media (max-width: 768px) {
-    .skills-showcase {
-        padding: 4rem 1rem 2rem;
-    }
-
-    .demo-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-    }
-    
-    .header-left {
-        min-width: 100%;
-    }
-    
-    .demo-content {
-        padding: 1rem;
-    }
-    
-    .demo-controls {
-        width: 100%;
-    }
-    
-    .demo-btn {
-        flex: 1;
-        justify-content: center;
-    }
-    
-    .kafka-metrics {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-    }
-    
-    .languages-grid,
-    .tech-categories {
-        grid-template-columns: 1fr;
-    }
-
-    .skill-demo {
-        margin-bottom: 1.5rem;
+    .stat-value,
+    .metric-value {
+        font-size: 1.5rem;
     }
 }

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Faizan Ansari Portfolio</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/pages.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -17,7 +18,8 @@
             <div class="logo">Faizan Ansari</div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="#projects">Projects</a>
+                <a href="experience.html">Experience</a>
+                <a href="projects.html">Projects</a>
                 <a href="articles.html">Articles</a>
             </div>
             <div class="mobile-menu" onclick="toggleMobileMenu()">
@@ -31,6 +33,7 @@
     <!-- Projects Hero Section -->
     <section class="projects-hero" id="projects">
         <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">Innovative solutions and technical implementations</p>
         <div class="filter-container">
             <button class="filter-button active" onclick="filterProjects('all')" data-category="all">All</button>
             <button class="filter-button" onclick="filterProjects('technology')" data-category="technology">Technology</button>
@@ -43,8 +46,6 @@
             <!-- Project cards will be dynamically added here -->
         </div>
     </section>
-
-    
 
     <script src="scripts/particles.js"></script>
     <script src="scripts/navigation.js"></script>
