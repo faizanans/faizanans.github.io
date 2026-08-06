@@ -1,0 +1,107 @@
+.panel {
+  position: relative;
+  padding: clamp(48px, 7vw, 88px) clamp(28px, 5vw, 72px);
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(
+      90% 130% at 50% 0%,
+      rgba(94, 234, 212, 0.09) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 55%);
+  text-align: center;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.title {
+  margin-top: 18px;
+  font-size: clamp(30px, 4.6vw, 52px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.body {
+  max-width: 52ch;
+  margin: 16px auto 0;
+  font-size: clamp(15px, 1.7vw, 17px);
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 500;
+  transition:
+    transform 0.15s var(--ease),
+    background-color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #052722;
+}
+
+.primary:hover {
+  background: #7ff2e0;
+}
+
+.secondary {
+  border: 1px solid var(--line-hi);
+  color: var(--text);
+}
+
+.secondary:hover {
+  border-color: var(--accent-line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.primary:active,
+.secondary:active {
+  transform: scale(0.97);
+}
+
+/* The email address itself, shown as a copyable mono line. */
+.address {
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+@media (max-width: 520px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary,
+  .secondary {
+    justify-content: center;
+  }
+}

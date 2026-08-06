@@ -1,0 +1,42 @@
+.head {
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.index {
+  color: var(--accent);
+}
+
+/* Hairline that runs out to the edge of the container. */
+.rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--line-hi), transparent);
+}
+
+.title {
+  margin-top: 18px;
+  font-size: clamp(30px, 4.4vw, 46px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.028em;
+}
+
+.lede {
+  max-width: 58ch;
+  margin-top: 14px;
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.65;
+  color: var(--text-muted);
+}
