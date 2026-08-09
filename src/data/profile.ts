@@ -12,19 +12,12 @@ export const profile = {
   resume: '/documents/Faizan-Ansari-Resume.pdf',
   github: 'https://github.com/faizanans',
   linkedin: 'https://www.linkedin.com/in/faizanansari786/',
+  headline: 'I build backend systems that move data in real time.',
   summary:
-    'I build event-driven backend systems in Java and Spring Boot — services that move data through Kafka, Redis, Druid, and MySQL — and I lead the team that ships them.',
+    'Event-driven services in Java and Spring Boot, Kafka, Redis, Apache Druid, MySQL designed to be operated, not just launched. Nine years in technology, six of them writing production backends, and currently leading the engineering team that ships them.',
 } as const;
 
-/** Rotating headline in the hero terminal. */
-export const headlines: readonly string[] = [
-  'event-driven backend systems',
-  'Kafka pipelines that stay up',
-  'Druid-backed analytics at volume',
-  'engineering teams that ship',
-];
-
-/** Stat strip under the hero. */
+/** Headline figures. */
 export interface Stat {
   value: string;
   label: string;
@@ -32,33 +25,71 @@ export interface Stat {
 
 export const stats: readonly Stat[] = [
   { value: '9+', label: 'Years in tech' },
+  { value: '3', label: 'IT Support' },
   { value: '6', label: 'Years backend engineering' },
-  { value: '4', label: 'Engineers led' },
   { value: 'B.S.', label: 'Software Engineering, UTD' },
 ];
 
-/** "What I do" cards. `index` renders as a monospace ordinal. */
-export interface Focus {
+/**
+ * What I build. The spine of the page: each capability names the work, what
+ * it involves, and the concrete pieces that come out of it.
+ */
+export interface Capability {
   title: string;
   body: string;
-  tags: readonly string[];
+  deliverables: readonly string[];
+  art: string;
 }
 
-export const focus: readonly Focus[] = [
+export const capabilities: readonly Capability[] = [
   {
-    title: 'Backend services',
-    body: 'Production APIs and services in Java and Spring Boot, backed by MySQL and Redis — designed to be operated, not just launched.',
-    tags: ['Java', 'Spring Boot', 'REST', 'MySQL'],
+    title: 'Backend & API development',
+    body: 'The engine behind a product: a documented API, a data model that holds up, and the business logic the operation actually runs on.',
+    deliverables: ['REST APIs', 'Database design', 'Auth & permissions', 'Deployment setup'],
+    art: '/illustrations/server_9eix.svg',
   },
   {
     title: 'Event-driven systems',
-    body: 'Workflows that integrate systems in real time: Kafka pipelines and Druid-backed analytics built for throughput and clean failure handling.',
-    tags: ['Kafka', 'Apache Druid', 'Redis'],
+    body: 'Systems that talk to each other in real time instead of in nightly batches — Kafka pipelines with throughput budgets and explicit failure handling.',
+    deliverables: ['Event pipelines', 'Service integration', 'Scheduled jobs', 'Data sync'],
+    art: '/illustrations/collaborating_mayd.svg',
   },
   {
-    title: 'Technical leadership',
-    body: 'Code reviews, mentoring, and engineering standards — plus planning delivery directly with project managers across business units.',
-    tags: ['Code review', 'Mentoring', 'Agile SDLC'],
+    title: 'Data & analytics platforms',
+    body: 'High-volume ingestion and the reporting layer on top of it, built on the same Druid and Redis stack I run at scale day to day.',
+    deliverables: ['Ingestion pipeline', 'Analytics store', 'Dashboards', 'Alerting & export'],
+    art: '/illustrations/visualization_zhab.svg',
+  },
+  {
+    title: 'Full-stack web applications',
+    body: 'An internal tool or a customer facing product built whole — React on the front, Spring Boot behind it, shipped to a URL that stays up.',
+    deliverables: ['React frontend', 'Backend services', 'CI/CD & hosting', 'Handover docs'],
+    art: '/illustrations/programming_65t2.svg',
+  },
+];
+
+/** How the work gets done. */
+export interface Principle {
+  title: string;
+  body: string;
+}
+
+export const approach: readonly Principle[] = [
+  {
+    title: 'Scope before code',
+    body: 'What gets built and what explicitly does not, written down in plain language first. Every disagreement is cheaper here than it is in a pull request.',
+  },
+  {
+    title: 'Built to be operated',
+    body: 'A service is finished when someone else can diagnose it at 3am, structured logs, honest health checks, and failure paths written before the happy path.',
+  },
+  {
+    title: 'Reviewed to teach',
+    body: 'The comment that explains the reasoning is worth more than the one that only blocks the merge.',
+  },
+  {
+    title: 'Handed over documented',
+    body: 'The repository, the deployment, and the reasoning behind both. Nothing important should live only in the head of whoever wrote it.',
   },
 ];
 
@@ -84,7 +115,7 @@ export const roles: readonly Role[] = [
     current: true,
     bullets: [
       'Lead backend development for production applications built on Java, Spring Boot, and MySQL.',
-      "Manage the engineering team's delivery — code reviews, technical direction, and mentoring.",
+      "Manage the engineering team's delivery code reviews, technical direction, and mentoring.",
       'Design data and messaging flows with Redis, Kafka, and Apache Druid for high-volume, event-driven workloads.',
     ],
     stack: ['Java', 'Spring Boot', 'Kafka', 'Redis', 'Druid', 'MySQL'],
@@ -178,10 +209,7 @@ export const skills: readonly SkillGroup[] = [
     label: 'Backend',
     items: ['Spring Boot', 'Spring', 'REST APIs', 'Event-driven architecture'],
   },
-  {
-    label: 'Data & messaging',
-    items: ['Kafka', 'Redis', 'Apache Druid', 'MySQL'],
-  },
+  { label: 'Data & messaging', items: ['Kafka', 'Redis', 'Apache Druid', 'MySQL'] },
   { label: 'Platform', items: ['Docker', 'Kubernetes', 'CI/CD', 'Git'] },
 ];
 
@@ -192,9 +220,9 @@ export interface NavSection {
 }
 
 export const navSections: readonly NavSection[] = [
+  { id: 'build', label: 'What I build' },
+  { id: 'approach', label: 'Approach' },
   { id: 'work', label: 'Work' },
   { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
 ];

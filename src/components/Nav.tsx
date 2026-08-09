@@ -1,84 +1,85 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { animate, utils } from 'animejs';
 import { navSections, profile } from '../data/profile';
 import { useScrollSpy } from '../hooks/useScrollSpy';
+import { prefersReducedMotion } from '../lib/motion';
 import styles from './Nav.module.css';
 
-const sectionIds = navSections.map((s) => s.id);
-
 export function Nav() {
-  const [open, setOpen] = useState(false);
+  const ids = useMemo(() => navSections.map((s) => s.id), []);
+  const active = useScrollSpy(ids);
   const [scrolled, setScrolled] = useState(false);
-  const active = useScrollSpy(sectionIds);
+
+  const links = useRef(new Map<string, HTMLAnchorElement>());
+  const marker = useRef<HTMLSpanElement>(null);
+  const settled = useRef(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // The mobile menu overlays the page; Escape is the expected way out.
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
+  /** Slide the underline to whichever section is in view. */
+  useLayoutEffect(() => {
+    const el = marker.current;
+    if (!el) return;
 
-  const className = [
-    styles.nav,
-    scrolled ? styles.scrolled : '',
-    open ? styles.open : '',
-  ]
-    .filter(Boolean)
-    .join(' ');
+    const target = active ? links.current.get(active) : undefined;
+    if (!target) {
+      utils.set(el, { opacity: 0 });
+      return;
+    }
+
+    const to = {
+      left: target.offsetLeft + 12,
+      width: target.offsetWidth - 24,
+      opacity: 1,
+    };
+
+    // Don't animate the marker into existence on first paint.
+    if (!settled.current || prefersReducedMotion()) {
+      settled.current = true;
+      utils.set(el, to);
+      return;
+    }
+
+    const animation = animate(el, { ...to, duration: 420, ease: 'out(3)' });
+    return () => {
+      animation.revert();
+    };
+  }, [active]);
 
   return (
-    <header className={className}>
+    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
-        <a className={styles.brand} href="#top" onClick={() => setOpen(false)}>
-          <span className={styles.dot} />
+        <a className={styles.brand} href="#top">
           {profile.name}
-          <span className={styles.brandRole}>/ {profile.role}</span>
         </a>
 
-        <nav className={styles.links} aria-label="Sections">
+        <div className={styles.links}>
+          <span className={styles.marker} ref={marker} aria-hidden="true" />
           {navSections.map((section) => (
             <a
               key={section.id}
               href={`#${section.id}`}
               className={`${styles.link} ${active === section.id ? styles.active : ''}`}
               aria-current={active === section.id ? 'true' : undefined}
-              onClick={() => setOpen(false)}
+              ref={(node) => {
+                if (node) links.current.set(section.id, node);
+                else links.current.delete(section.id);
+              }}
             >
               {section.label}
             </a>
           ))}
-          <a
-            className={styles.cta}
-            href={profile.resume}
-            target="_blank"
-            rel="noopener"
-            onClick={() => setOpen(false)}
-          >
-            Résumé
-          </a>
-        </nav>
+        </div>
 
-        <button
-          type="button"
-          className={styles.toggle}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <a className={styles.cta} href="#contact">
+          Get in touch
+        </a>
       </div>
-    </header>
+    </nav>
   );
 }

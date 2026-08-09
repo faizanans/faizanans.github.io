@@ -1,33 +1,37 @@
-import { Backdrop } from './components/Backdrop';
+import { useReveal } from './lib/motion';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
-import { Focus } from './components/Focus';
-import { Experience } from './components/Experience';
+import { Capabilities } from './components/Capabilities';
+import { Approach } from './components/Approach';
 import { Projects } from './components/Projects';
+import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
+import { Contact, Footer } from './components/Contact';
 
 export default function App() {
+  const main = useReveal<HTMLElement>();
+
   return (
     <>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <Backdrop />
-      {/* Sits above the fixed backdrop layer. */}
-      <div style={{ position: 'relative', zIndex: 1 }}>
-        <Nav />
-        <main id="main">
-          <Hero />
-          <Focus />
-          <Experience />
+
+      <Nav />
+      <Hero />
+
+      <main id="main" ref={main}>
+        <div className="container">
+          <Capabilities />
+          <Approach />
           <Projects />
+          <Experience />
           <Skills />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+        </div>
+        <Contact />
+      </main>
+
+      <Footer />
     </>
   );
 }

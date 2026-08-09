@@ -1,42 +1,54 @@
 import { profile } from '../data/profile';
-import { useReveal } from '../hooks/useReveal';
+import { Illustration } from './Illustration';
 import styles from './Contact.module.css';
 
 export function Contact() {
-  const ref = useReveal<HTMLDivElement>();
-
   return (
-    <section className="section" id="contact">
-      <div className="container">
-        <div className={styles.panel} ref={ref}>
-          <p className={styles.eyebrow}>Get in touch</p>
-          <h2 className={styles.title}>
-            Let&rsquo;s talk about
-            <br />
-            what you&rsquo;re building.
-          </h2>
-          <p className={styles.body}>
-            Open to conversations about backend systems, event-driven
-            architecture, and leading engineering teams.
-          </p>
+    <section className={styles.contact} id="contact" data-reveal-group>
+      <div className={`container ${styles.inner}`}>
+        <div className="reveal">
+          <h2 className={styles.title}>Let's Connect</h2>
 
           <div className={styles.actions}>
             <a className={styles.primary} href={`mailto:${profile.email}`}>
-              Email me
+              {profile.email}
             </a>
-            <a
-              className={styles.secondary}
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener"
-            >
-              Connect on LinkedIn
+            <a className={styles.link} href={profile.resume}>
+              Résumé
+            </a>
+            <a className={styles.link} href={profile.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a className={styles.link} href={profile.github} target="_blank" rel="noreferrer">
+              GitHub
             </a>
           </div>
-
-          <p className={styles.address}>{profile.email}</p>
         </div>
+
+        <Illustration src="/illustrations/letter_ombg.svg" className={`reveal ${styles.art}`} />
       </div>
     </section>
+  );
+}
+
+export function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <div className={`container ${styles.footerInner}`}>
+        <span>
+          © {new Date().getFullYear()} {profile.name} · {profile.location}
+        </span>
+        <span>
+          Illustrations by{' '}
+          <a href="https://undraw.co" target="_blank" rel="noreferrer">
+            unDraw
+          </a>{' '}
+          · Motion by{' '}
+          <a href="https://animejs.com" target="_blank" rel="noreferrer">
+            anime.js
+          </a>
+        </span>
+      </div>
+    </footer>
   );
 }

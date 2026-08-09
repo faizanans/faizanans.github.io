@@ -11,7 +11,7 @@
 html {
   scroll-behavior: smooth;
   /* Anchored sections must clear the sticky nav. */
-  scroll-padding-top: calc(var(--nav-h) + 16px);
+  scroll-padding-top: calc(var(--nav-h) + 24px);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -19,7 +19,7 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.62;
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
@@ -35,6 +35,15 @@ h4,
 p,
 figure {
   margin: 0;
+}
+
+/* Headings are set tight; the size does the work, not the weight. */
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  line-height: 1.14;
 }
 
 ul,
@@ -65,14 +74,14 @@ button {
 }
 
 ::selection {
-  background: var(--accent);
-  color: #06231e;
+  background: var(--text);
+  color: var(--bg);
 }
 
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
 }
 
 /* Layout primitives ------------------------------------------------------ */
@@ -84,22 +93,16 @@ button {
   padding: 0 var(--gutter);
 }
 
-.section {
-  position: relative;
-  padding: var(--section-pad) 0;
-}
-
 /* Shared type ------------------------------------------------------------ */
 
 .mono {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-/* Visible to assistive tech only. */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -119,9 +122,9 @@ button {
   z-index: 200;
   padding: 10px 16px;
   border-radius: var(--radius-sm);
-  background: var(--accent);
-  color: #06231e;
-  font-weight: 600;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 14px;
   transform: translateY(-200%);
   transition: transform 0.2s var(--ease);
 }
@@ -130,19 +133,10 @@ button {
   transform: translateY(0);
 }
 
-/* Scroll reveal ---------------------------------------------------------- */
-
+/* anime.js sets the resting state; CSS only hides the target beforehand. */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.7s var(--ease),
-    transform 0.7s var(--ease);
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+  will-change: opacity, transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -159,7 +153,7 @@ button {
   }
 
   .reveal {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

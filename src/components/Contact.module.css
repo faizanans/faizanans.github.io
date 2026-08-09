@@ -1,107 +1,104 @@
-.panel {
-  position: relative;
-  padding: clamp(48px, 7vw, 88px) clamp(28px, 5vw, 72px);
-  border: 1px solid var(--line-hi);
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(
-      90% 130% at 50% 0%,
-      rgba(94, 234, 212, 0.09) 0%,
-      transparent 60%
-    ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 55%);
-  text-align: center;
-  overflow: hidden;
+/* Closing block, then a quiet footer. */
+
+.contact {
+  margin-top: var(--section-pad);
+  padding: clamp(48px, 7vw, 76px) 0 clamp(48px, 7vw, 72px);
+  border-top: 1px solid var(--line);
 }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: clamp(28px, 5vw, 56px);
+  align-items: center;
 }
 
 .title {
-  margin-top: 18px;
-  font-size: clamp(30px, 4.6vw, 52px);
-  font-weight: 600;
-  line-height: 1.08;
+  font-size: clamp(30px, 4.4vw, 46px);
   letter-spacing: -0.03em;
+  max-width: 16ch;
+  text-wrap: balance;
 }
 
 .body {
+  margin-top: 18px;
   max-width: 52ch;
-  margin: 16px auto 0;
-  font-size: clamp(15px, 1.7vw, 17px);
-  line-height: 1.65;
+  font-size: 17px;
   color: var(--text-muted);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 36px;
+  gap: 10px;
+  margin-top: 30px;
 }
 
 .primary,
-.secondary {
+.link {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 13px 24px;
+  gap: 8px;
+  padding: 12px 22px;
   border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 500;
   transition:
-    transform 0.15s var(--ease),
-    background-color 0.2s var(--ease),
-    border-color 0.2s var(--ease);
+    background-color 0.22s var(--ease),
+    border-color 0.22s var(--ease),
+    color 0.22s var(--ease),
+    transform 0.22s var(--ease);
 }
 
 .primary {
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  color: #052722;
+  background: var(--text);
+  color: var(--bg);
 }
 
 .primary:hover {
-  background: #7ff2e0;
+  background: var(--accent);
+  transform: translateY(-2px);
 }
 
-.secondary {
-  border: 1px solid var(--line-hi);
-  color: var(--text);
+.link {
+  border: 1px solid var(--line-strong);
 }
 
-.secondary:hover {
-  border-color: var(--accent-line);
-  background: rgba(255, 255, 255, 0.03);
+.link:hover {
+  border-color: var(--text);
+  transform: translateY(-2px);
 }
 
-.primary:active,
-.secondary:active {
-  transform: scale(0.97);
+.art {
+  width: 100%;
 }
 
-/* The email address itself, shown as a copyable mono line. */
-.address {
-  margin-top: 28px;
-  font-family: var(--font-mono);
+/* Footer ----------------------------------------------------------------- */
+
+.footer {
+  padding: 26px 0 40px;
+  border-top: 1px solid var(--line);
+}
+
+.footerInner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
   font-size: 13px;
   color: var(--text-faint);
 }
 
-@media (max-width: 520px) {
-  .actions {
-    flex-direction: column;
-    align-items: stretch;
+.footerInner a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .primary,
-  .secondary {
-    justify-content: center;
+  .art {
+    max-width: 220px;
   }
 }
