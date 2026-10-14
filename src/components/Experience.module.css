@@ -1,82 +1,136 @@
-/* Career timeline. A single rule down the left, one node per role. */
+/* Timeline: a rail on the left with one node per entry. On wide screens the
+   dates sit in their own column beside the rail; on phones they stack above
+   the card so nothing gets squeezed. */
 
-.list {
+.timeline {
   position: relative;
-  padding-left: 28px;
+  display: grid;
+  gap: 20px;
 }
 
-.list::before {
+.timeline::before {
   content: '';
   position: absolute;
   top: 8px;
   bottom: 8px;
-  left: 3px;
+  left: 5px;
   width: 1px;
-  background: var(--line);
+  background: var(--line-strong);
 }
 
 .role {
   position: relative;
-  padding: 0 0 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding-left: 32px;
 }
 
-.role:last-child {
-  padding-bottom: 0;
+@media (min-width: 860px) {
+  .role {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+
+.when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  padding-top: 2px;
+}
+
+@media (min-width: 860px) {
+  .when {
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 26px;
+  }
 }
 
 .node {
   position: absolute;
+  left: 0;
   top: 7px;
-  left: -28px;
-  width: 7px;
-  height: 7px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  background: var(--bg);
-  box-shadow: 0 0 0 1px var(--line-strong);
+  border: 2px solid var(--line-strong);
+  background: var(--bg-subtle);
 }
 
-.currentNode {
+@media (min-width: 860px) {
+  .node {
+    top: 32px;
+  }
+}
+
+.live {
+  border-color: var(--accent);
   background: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-wash);
+  box-shadow: 0 0 0 4px var(--accent-wash);
 }
 
-.meta {
+.dates {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.place {
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.body {
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.head {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--text-faint);
-  text-transform: uppercase;
-}
-
-.badge {
-  padding: 2px 8px;
-  border-radius: var(--radius-pill);
-  background: var(--accent-wash);
-  color: var(--accent);
+  gap: 8px 12px;
 }
 
 .title {
-  margin-top: 10px;
-  font-size: 20px;
+  font-size: 18px;
+}
+
+.badge,
+.badgeMuted {
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge {
+  border: 1px solid var(--accent-line);
+  background: var(--accent-wash);
+  color: var(--accent-text);
+}
+
+.badgeMuted {
+  border: 1px solid var(--line);
+  background: var(--bg-subtle);
+  color: var(--text-muted);
 }
 
 .org {
+  margin-top: 2px;
+  font-size: 15px;
   color: var(--text-muted);
-  font-weight: 400;
 }
 
 .bullets {
   display: grid;
-  gap: 7px;
-  margin-top: 12px;
-  max-width: 68ch;
+  gap: 8px;
+  margin: 16px 0 20px;
+  font-size: 15px;
   color: var(--text-muted);
-  font-size: 15.5px;
 }
 
 .bullets li {
@@ -87,56 +141,9 @@
 .bullets li::before {
   content: '';
   position: absolute;
-  top: 11px;
-  left: 0;
+  left: 2px;
+  top: 0.68em;
   width: 6px;
-  height: 1px;
+  height: 1.5px;
   background: var(--text-faint);
-}
-
-.stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 16px;
-}
-
-.chip {
-  padding: 3px 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  background: var(--bg-subtle);
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-/* Education -------------------------------------------------------------- */
-
-.education {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 6px 24px;
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-}
-
-.degree {
-  font-size: 17px;
-  font-weight: 500;
-}
-
-.school {
-  color: var(--text-muted);
-  font-weight: 400;
-}
-
-.when {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-faint);
 }

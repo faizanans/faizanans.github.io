@@ -1,29 +1,48 @@
 /* ==========================================================================
-   Design tokens — minimal, modern
-   Near-white canvas, near-black type, hairline borders, one accent.
-   Depth comes from spacing and a single soft shadow on lift; never from
-   gradients, glass, or heavy chrome.
+   Design tokens
+   Neutral zinc canvas, one blue accent, hairline borders. Light and dark
+   themes share every token name; components never hardcode a colour.
+   Theme resolution: [data-theme] on <html> wins, otherwise the OS setting.
    ========================================================================== */
 
 :root {
+  color-scheme: light;
+
   /* Canvas -------------------------------------------------------------- */
-  --bg: #ffffff;
-  --bg-subtle: #fafafa;
-  --bg-sunk: #f5f5f4;
+  --bg: #fbfbfa;
+  --bg-elev: #ffffff;
+  --bg-subtle: #f4f4f3;
+  --bg-nav: rgba(251, 251, 250, 0.8);
 
   /* Lines --------------------------------------------------------------- */
-  --line: rgba(10, 10, 10, 0.09);
-  --line-strong: rgba(10, 10, 10, 0.16);
+  --line: rgba(9, 9, 11, 0.08);
+  --line-strong: rgba(9, 9, 11, 0.15);
 
   /* Text ---------------------------------------------------------------- */
-  --text: #0a0a0a;
-  --text-muted: #6c6a67;
-  --text-faint: #9b9894;
+  --text: #0b0b0d;
+  --text-muted: #5b5b63;
+  --text-faint: #8b8b93;
 
   /* Accent -------------------------------------------------------------- */
-  --accent: #b4472f;
-  --accent-deep: #93341f;
-  --accent-wash: rgba(180, 71, 47, 0.07);
+  --accent: #2b59d9;
+  --accent-hover: #2147b5;
+  --accent-text: #2147b5;
+  --accent-wash: rgba(43, 89, 217, 0.08);
+  --accent-line: rgba(43, 89, 217, 0.28);
+  --on-accent: #ffffff;
+  --success: #16a34a;
+
+  /* Elevation ----------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(9, 9, 11, 0.04);
+  --shadow: 0 1px 2px rgba(9, 9, 11, 0.04), 0 12px 32px -8px rgba(9, 9, 11, 0.1);
+  --grid-dot: rgba(9, 9, 11, 0.07);
+
+  /* Glass (nav track + active pill) -------------------------------------- */
+  --glass-track: rgba(255, 255, 255, 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(9, 9, 11, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.95);
+  --glass-shadow: 0 1px 2px rgba(9, 9, 11, 0.06), 0 6px 16px -6px rgba(9, 9, 11, 0.18);
 
   /* Type ---------------------------------------------------------------- */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -32,22 +51,75 @@
     monospace;
 
   /* Shape --------------------------------------------------------------- */
-  --radius-sm: 6px;
-  --radius: 10px;
-  --radius-lg: 14px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
   --radius-pill: 9999px;
 
   /* Rhythm -------------------------------------------------------------- */
-  --container: 1080px;
-  --gutter: clamp(20px, 5vw, 40px);
-  --section-pad: clamp(72px, 11vw, 132px);
-  --nav-h: 60px;
-
-  /* Elevation ----------------------------------------------------------- */
-  --shadow:
-    0 1px 2px rgba(10, 10, 10, 0.04), 0 8px 24px rgba(10, 10, 10, 0.06);
+  --container: 1120px;
+  --gutter: clamp(16px, 5vw, 40px);
+  --section-pad: clamp(72px, 10vw, 120px);
+  --nav-h: 64px;
 
   /* Motion -------------------------------------------------------------- */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --dur: 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #09090b;
+    --bg-elev: #111114;
+    --bg-subtle: #16161a;
+    --bg-nav: rgba(9, 9, 11, 0.72);
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --text: #f4f4f5;
+    --text-muted: #a1a1aa;
+    --text-faint: #71717a;
+    --accent: #6d8ff5;
+    --accent-hover: #8aa5f7;
+    --accent-text: #93abf8;
+    --accent-wash: rgba(109, 143, 245, 0.1);
+    --accent-line: rgba(109, 143, 245, 0.35);
+    --on-accent: #09090b;
+    --success: #4ade80;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 16px 40px -12px rgba(0, 0, 0, 0.6);
+    --grid-dot: rgba(255, 255, 255, 0.07);
+    --glass-track: rgba(255, 255, 255, 0.03);
+    --glass-bg: rgba(255, 255, 255, 0.09);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-highlight: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 20px -8px rgba(0, 0, 0, 0.7);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #09090b;
+  --bg-elev: #111114;
+  --bg-subtle: #16161a;
+  --bg-nav: rgba(9, 9, 11, 0.72);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+  --accent: #6d8ff5;
+  --accent-hover: #8aa5f7;
+  --accent-text: #93abf8;
+  --accent-wash: rgba(109, 143, 245, 0.1);
+  --accent-line: rgba(109, 143, 245, 0.35);
+  --on-accent: #09090b;
+  --success: #4ade80;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 16px 40px -12px rgba(0, 0, 0, 0.6);
+  --grid-dot: rgba(255, 255, 255, 0.07);
+  --glass-track: rgba(255, 255, 255, 0.03);
+  --glass-bg: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-highlight: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 20px -8px rgba(0, 0, 0, 0.7);
 }

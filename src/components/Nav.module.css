@@ -1,18 +1,16 @@
-/* Sticky top bar. Hairline only — it should disappear while reading. */
+/* Sticky top bar. Hairline appears only once the page has moved. */
 
 .nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: var(--nav-h);
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  background: var(--bg-nav);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.25s var(--ease);
+  transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease);
 }
 
-/* The rule only appears once the page has moved. */
 .scrolled {
   border-bottom-color: var(--line);
 }
@@ -21,72 +19,188 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  height: 100%;
+  gap: 16px;
+  height: var(--nav-h);
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
+.mark {
+  flex: none;
+  width: 34px;
+  height: 34px;
+}
+
+/* Frosted track holding the links; the pill below slides inside it. */
 .links {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  background: var(--glass-track);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+}
+
+/* Glass pill behind the active link. Position and width come from Nav.tsx. */
+.pill {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    var(--glass-shadow);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  pointer-events: none;
+  will-change: transform, width;
+  transition: opacity 0.15s var(--ease);
+}
+
+.pillAnimate {
+  transition:
+    transform 0.22s var(--ease),
+    width 0.22s var(--ease),
+    opacity 0.15s var(--ease);
 }
 
 .link {
   position: relative;
-  padding: 6px 12px;
-  border-radius: var(--radius-sm);
+  z-index: 1;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
   font-size: 14px;
   color: var(--text-muted);
-  transition: color 0.2s var(--ease);
+  transition: color 0.15s var(--ease);
 }
 
 .link:hover {
   color: var(--text);
 }
 
-.active {
+.link.active {
   color: var(--text);
 }
 
-/* Underline marker slides between sections; anime.js drives its position. */
-.marker {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background: var(--accent);
-  border-radius: 2px;
-  opacity: 0;
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.cta {
-  padding: 8px 16px;
+.iconBtn {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-pill);
-  background: var(--text);
-  color: var(--bg);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.iconBtn:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+.resume {
+  height: 40px;
+  padding: 0 16px;
   font-size: 14px;
+}
+
+.menuBtn {
+  display: none;
+}
+
+/* Mobile sheet ----------------------------------------------------------- */
+
+.sheet {
+  border-top: 1px solid var(--line);
+  height: calc(100dvh - var(--nav-h));
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+.sheetOpen {
+  animation: sheetIn 0.28s var(--ease);
+}
+
+@keyframes sheetIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.sheetLinks {
+  padding: 12px 0;
+}
+
+.sheetLinks a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.sheetLinks a.active {
+  color: var(--accent-text);
+}
+
+.sheetIndex {
+  font-family: var(--font-mono);
+  font-size: 12px;
   font-weight: 500;
-  white-space: nowrap;
-  transition:
-    background-color 0.2s var(--ease),
-    transform 0.2s var(--ease);
+  color: var(--text-faint);
 }
 
-.cta:hover {
-  background: var(--accent);
-  transform: translateY(-1px);
+.sheetFoot {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0 32px;
 }
 
-@media (max-width: 860px) {
-  .links {
+.sheetSocial {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 879px) {
+  .links,
+  .resume {
+    display: none;
+  }
+
+  .menuBtn {
+    display: inline-grid;
+  }
+}
+
+@media (min-width: 880px) {
+  .sheet {
     display: none;
   }
 }

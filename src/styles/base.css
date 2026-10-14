@@ -11,7 +11,7 @@
 html {
   scroll-behavior: smooth;
   /* Anchored sections must clear the sticky nav. */
-  scroll-padding-top: calc(var(--nav-h) + 24px);
+  scroll-padding-top: calc(var(--nav-h) + 16px);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -19,13 +19,14 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.62;
+  line-height: 1.6;
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
 }
 
 h1,
@@ -33,17 +34,23 @@ h2,
 h3,
 h4,
 p,
-figure {
+figure,
+dl,
+dd {
   margin: 0;
 }
 
-/* Headings are set tight; the size does the work, not the weight. */
 h1,
 h2,
 h3 {
-  font-weight: 500;
-  letter-spacing: -0.022em;
-  line-height: 1.14;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 ul,
@@ -74,8 +81,8 @@ button {
 }
 
 ::selection {
-  background: var(--text);
-  color: var(--bg);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
 :focus-visible {
@@ -93,14 +100,82 @@ button {
   padding: 0 var(--gutter);
 }
 
-/* Shared type ------------------------------------------------------------ */
+/* Shared UI -------------------------------------------------------------- */
 
-.mono {
-  font-family: var(--font-mono);
-  font-size: 11px;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn-ghost {
+  border-color: var(--line-strong);
+  background: var(--bg-elev);
+}
+
+.btn-ghost:hover {
+  border-color: var(--text-faint);
+}
+
+.btn svg {
+  transition: transform 0.2s var(--ease);
+}
+
+.btn:hover svg[data-nudge] {
+  transform: translateX(2px);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--bg-subtle);
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-sm);
 }
 
 .sr-only {

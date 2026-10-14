@@ -6,65 +6,64 @@
 export const profile = {
   name: 'Faizan Ansari',
   role: 'Lead Software Developer',
+  focus: 'Backend & distributed systems',
   company: 'Plasma',
   location: 'Dallas–Fort Worth, TX',
   email: 'faizanansari1220@gmail.com',
   resume: '/documents/Faizan-Ansari-Resume.pdf',
   github: 'https://github.com/faizanans',
   linkedin: 'https://www.linkedin.com/in/faizanansari786/',
-  headline: 'I build backend systems that move data in real time.',
   summary:
-    'Event-driven services in Java and Spring Boot, Kafka, Redis, Apache Druid, MySQL designed to be operated, not just launched. Nine years in technology, six of them writing production backends, and currently leading the engineering team that ships them.',
+    'I design and run event-driven services in Java and Spring Boot on Kafka, Redis, Apache Druid and MySQL. I build them so other people can operate them, not just launch them. I have spent six years writing production backends, and today I lead the engineering team that ships them.',
 } as const;
 
-/** Headline figures. */
+/** Headline figures shown under the hero. */
 export interface Stat {
   value: string;
   label: string;
 }
 
 export const stats: readonly Stat[] = [
-  { value: '9+', label: 'Years in tech' },
-  { value: '3', label: 'IT Support' },
-  { value: '6', label: 'Years backend engineering' },
-  { value: 'B.S.', label: 'Software Engineering, UTD' },
+  { value: '6+', label: 'Years building production backends' },
+  { value: '3+', label: 'Years leading an engineering team' },
+  { value: '9+', label: 'Years in technology' },
+  { value: 'B.S.', label: 'Software Engineering, UT Dallas' },
 ];
 
-/**
- * What I build. The spine of the page: each capability names the work, what
- * it involves, and the concrete pieces that come out of it.
- */
+/** What I build. Each names the work and the concrete pieces that come out of it. */
+export type IconName = 'server' | 'stream' | 'chart' | 'layers';
+
 export interface Capability {
   title: string;
   body: string;
   deliverables: readonly string[];
-  art: string;
+  icon: IconName;
 }
 
 export const capabilities: readonly Capability[] = [
   {
-    title: 'Backend & API development',
-    body: 'The engine behind a product: a documented API, a data model that holds up, and the business logic the operation actually runs on.',
-    deliverables: ['REST APIs', 'Database design', 'Auth & permissions', 'Deployment setup'],
-    art: '/illustrations/server_9eix.svg',
-  },
-  {
     title: 'Event-driven systems',
-    body: 'Systems that talk to each other in real time instead of in nightly batches — Kafka pipelines with throughput budgets and explicit failure handling.',
-    deliverables: ['Event pipelines', 'Service integration', 'Scheduled jobs', 'Data sync'],
-    art: '/illustrations/collaborating_mayd.svg',
+    body: 'Services that talk to each other in real time instead of in nightly batches. I build Kafka pipelines with a set throughput budget and plan how each one handles failure.',
+    deliverables: ['Kafka pipelines', 'Service integration', 'Scheduled jobs', 'Data sync'],
+    icon: 'stream',
   },
   {
-    title: 'Data & analytics platforms',
-    body: 'High-volume ingestion and the reporting layer on top of it, built on the same Druid and Redis stack I run at scale day to day.',
-    deliverables: ['Ingestion pipeline', 'Analytics store', 'Dashboards', 'Alerting & export'],
-    art: '/illustrations/visualization_zhab.svg',
+    title: 'Backend & API platforms',
+    body: 'The engine behind a product: a documented API, a data model that holds up under change, and the business logic the operation runs on.',
+    deliverables: ['REST APIs', 'Schema design', 'Auth & permissions', 'Observability'],
+    icon: 'server',
   },
   {
-    title: 'Full-stack web applications',
-    body: 'An internal tool or a customer facing product built whole — React on the front, Spring Boot behind it, shipped to a URL that stays up.',
-    deliverables: ['React frontend', 'Backend services', 'CI/CD & hosting', 'Handover docs'],
-    art: '/illustrations/programming_65t2.svg',
+    title: 'Data & analytics',
+    body: 'High-volume ingestion and the reporting layer on top of it, on the same Druid and Redis stack I run at scale every day.',
+    deliverables: ['Ingestion', 'Analytics store', 'Dashboards', 'Alerting'],
+    icon: 'chart',
+  },
+  {
+    title: 'Full-stack delivery',
+    body: 'Internal tools or customer-facing products, built end to end: React on the front, Spring Boot behind it, deployed to a URL that stays up.',
+    deliverables: ['React frontends', 'CI/CD', 'Containers', 'Handover docs'],
+    icon: 'layers',
   },
 ];
 
@@ -77,19 +76,19 @@ export interface Principle {
 export const approach: readonly Principle[] = [
   {
     title: 'Scope before code',
-    body: 'What gets built and what explicitly does not, written down in plain language first. Every disagreement is cheaper here than it is in a pull request.',
+    body: 'I write down what gets built, and what explicitly does not, in plain language first. Every disagreement costs less here than in a pull request.',
   },
   {
     title: 'Built to be operated',
-    body: 'A service is finished when someone else can diagnose it at 3am, structured logs, honest health checks, and failure paths written before the happy path.',
+    body: 'A service is finished when someone else can diagnose it at 3am. That takes structured logs and honest health checks, and I write the failure paths before the happy path.',
   },
   {
-    title: 'Reviewed to teach',
-    body: 'The comment that explains the reasoning is worth more than the one that only blocks the merge.',
+    title: 'Reviews that teach',
+    body: 'A review comment that explains the reasoning helps more than one that only blocks the merge. That habit is how a team grows its seniors.',
   },
   {
-    title: 'Handed over documented',
-    body: 'The repository, the deployment, and the reasoning behind both. Nothing important should live only in the head of whoever wrote it.',
+    title: 'Documented handover',
+    body: 'I hand over the repository, the deployment, and the reasoning behind both. Nothing important should live only in one person’s head.',
   },
 ];
 
@@ -115,8 +114,8 @@ export const roles: readonly Role[] = [
     current: true,
     bullets: [
       'Lead backend development for production applications built on Java, Spring Boot, and MySQL.',
-      "Manage the engineering team's delivery code reviews, technical direction, and mentoring.",
-      'Design data and messaging flows with Redis, Kafka, and Apache Druid for high-volume, event-driven workloads.',
+      'Run the engineering team’s delivery: code reviews, technical direction, and mentoring.',
+      'Design data and messaging flows on Redis, Kafka, and Apache Druid for high-volume, event-driven workloads.',
     ],
     stack: ['Java', 'Spring Boot', 'Kafka', 'Redis', 'Druid', 'MySQL'],
   },
@@ -127,10 +126,10 @@ export const roles: readonly Role[] = [
     end: 'Dec 2022',
     location: 'Irving, TX',
     bullets: [
-      'Built and maintained backend services with Spring and Spring Boot, using Java, Redis, Kafka, Druid, and MySQL.',
+      'Built and maintained backend services with Spring and Spring Boot on Java, Redis, Kafka, Druid, and MySQL.',
       'Developed event-driven workflows that integrated processes across multiple systems.',
-      'Worked directly with project managers across business units to plan and deliver key projects.',
-      'Practiced a disciplined SDLC on an Agile cadence to ship reliably and on time.',
+      'Partnered with project managers across business units to plan and deliver key projects.',
+      'Shipped reliably on an Agile cadence with a disciplined SDLC.',
     ],
     stack: ['Java', 'Spring', 'Kafka', 'Druid', 'MySQL'],
   },
@@ -141,8 +140,8 @@ export const roles: readonly Role[] = [
     end: 'Jan 2020',
     location: 'Plano, TX',
     bullets: [
-      'Single point of contact for technology support across the head office — network, email, operating systems, hardware, and mainframe/midrange operations.',
-      'Diagnosed, resolved, and documented technical issues in Remedy, and contributed to the internal knowledge base.',
+      'Main technology support contact across the head office, covering network, email, operating systems, hardware, and mainframe/midrange operations.',
+      'Diagnosed, resolved, and documented issues in Remedy, and added to the internal knowledge base.',
     ],
     stack: ['Networking', 'Mainframe', 'Remedy'],
   },
@@ -185,12 +184,12 @@ export const projects: readonly Project[] = [
   {
     name: 'QuickMsg',
     tagline: 'Real-time messaging platform',
-    body: 'A Spring Boot 3 backend routes messages over persistent WebSocket connections while a React frontend provides the chat interface. Built to explore low-latency, connection-heavy backend design end to end.',
+    body: 'A Spring Boot 3 backend routes messages over persistent WebSocket connections, and a React frontend provides the chat interface. I built it to try out low-latency, connection-heavy backend design end to end.',
     stack: ['Spring Boot 3', 'WebSocket', 'React', 'Lombok'],
     highlights: [
-      'Live messaging over WebSocket — instant transmission with no polling.',
-      'Create and join multiple channels, with connection state managed server-side.',
-      'Architecture kept deliberately lean so it scales out as channels and users grow.',
+      'Messages arrive instantly over WebSocket, with no polling.',
+      'Users can create and join multiple channels; the server manages connection state.',
+      'A deliberately lean architecture that can scale out as channels and users grow.',
     ],
     video: '/projects/quickmsg/video/demo.mp4',
     poster: '/projects/quickmsg/poster.jpg',
@@ -207,10 +206,12 @@ export const skills: readonly SkillGroup[] = [
   { label: 'Languages', items: ['Java', 'Go', 'Python', 'SQL'] },
   {
     label: 'Backend',
-    items: ['Spring Boot', 'Spring', 'REST APIs', 'Event-driven architecture'],
+    items: ['Spring Boot', 'Spring', 'REST APIs', 'WebSocket', 'Event-driven architecture'],
   },
-  { label: 'Data & messaging', items: ['Kafka', 'Redis', 'Apache Druid', 'MySQL'] },
-  { label: 'Platform', items: ['Docker', 'Kubernetes', 'CI/CD', 'Git'] },
+  { label: 'Data & messaging', items: ['Apache Kafka', 'Redis', 'Apache Druid', 'MySQL'] },
+  { label: 'Platform & delivery', items: ['Docker', 'Kubernetes', 'CI/CD', 'Git', 'Agile / Scrum'] },
+  { label: 'Leadership', items: ['Technical direction', 'Code review', 'Mentoring', 'Delivery planning'] },
+  { label: 'Frontend', items: ['React', 'HTML & CSS'] },
 ];
 
 /** Sticky-nav sections. Order defines both nav order and scroll-spy order. */
@@ -220,9 +221,9 @@ export interface NavSection {
 }
 
 export const navSections: readonly NavSection[] = [
-  { id: 'build', label: 'What I build' },
-  { id: 'approach', label: 'Approach' },
-  { id: 'work', label: 'Work' },
+  { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Experience' },
+  { id: 'work', label: 'Work' },
   { id: 'skills', label: 'Skills' },
+  { id: 'contact', label: 'Contact' },
 ];

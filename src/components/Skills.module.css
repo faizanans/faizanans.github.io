@@ -1,55 +1,31 @@
-/* Skills: label / values rows. Quiet by design — it is a reference, not a pitch. */
-
 .groups {
-  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .group {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 16px 32px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
+  padding: 22px;
 }
 
 .label {
+  margin-bottom: 14px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-faint);
-  padding-top: 5px;
-}
-
-.items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.chip {
-  padding: 5px 13px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  font-size: 14px;
-  transition:
-    border-color 0.2s var(--ease),
-    color 0.2s var(--ease);
-}
-
-.chip:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-@media (max-width: 620px) {
-  .group {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-  }
-
-  .label {
-    padding-top: 0;
-  }
 }

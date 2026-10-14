@@ -1,37 +1,19 @@
 import { projects } from '../data/profile';
 import { Section } from './Section';
+import { Icon } from './Icon';
 import styles from './Projects.module.css';
 
 export function Projects() {
   return (
     <Section
       id="work"
+      index="03"
       label="Selected work"
       title="Something you can watch run"
       lead="Most of what I build sits behind a company login. This one does not."
     >
       {projects.map((project) => (
-        <article className={`reveal ${styles.project}`} key={project.name}>
-          <div>
-            <h3 className={styles.name}>{project.name}</h3>
-            <p className={styles.tagline}>{project.tagline}</p>
-            <p className={styles.body}>{project.body}</p>
-
-            <ul className={styles.highlights}>
-              {project.highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-
-            <ul className={styles.stack}>
-              {project.stack.map((tech) => (
-                <li className={styles.chip} key={tech}>
-                  {tech}
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        <article className={`reveal card ${styles.project}`} key={project.name}>
           {project.video && (
             <figure className={styles.figure}>
               <video
@@ -44,9 +26,39 @@ export function Projects() {
                 playsInline
                 preload="none"
               />
-              <figcaption className={styles.caption}>Live demo · {project.name}</figcaption>
             </figure>
           )}
+
+          <div className={styles.content}>
+            <span className={styles.kicker}>{project.tagline}</span>
+            <h3 className={styles.name}>{project.name}</h3>
+            <p className={styles.body}>{project.body}</p>
+
+            <ul className={styles.highlights}>
+              {project.highlights.map((item) => (
+                <li key={item}>
+                  <Icon name="check" size={16} className={styles.tick} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <ul className="chips">
+              {project.stack.map((tech) => (
+                <li className="chip" key={tech}>
+                  {tech}
+                </li>
+              ))}
+            </ul>
+
+            {project.repo && (
+              <a className={`btn btn-ghost ${styles.repo}`} href={project.repo} target="_blank" rel="noreferrer">
+                <Icon name="github" size={15} />
+                View source
+                <Icon name="arrowUpRight" size={15} />
+              </a>
+            )}
+          </div>
         </article>
       ))}
     </Section>

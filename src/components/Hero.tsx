@@ -2,13 +2,9 @@ import { useEffect, useRef } from 'react';
 import { animate, stagger } from 'animejs';
 import { profile, stats } from '../data/profile';
 import { EASE, prefersReducedMotion } from '../lib/motion';
+import { Icon } from './Icon';
+import { SystemCard } from './SystemCard';
 import styles from './Hero.module.css';
-
-const Arrow = () => (
-  <svg className={styles.arrow} width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-    <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -22,7 +18,7 @@ export function Hero() {
       opacity: [0, 1],
       translateY: [18, 0],
       duration: 780,
-      delay: stagger(85, { start: 90 }),
+      delay: stagger(80, { start: 80 }),
       ease: EASE,
     });
 
@@ -33,40 +29,61 @@ export function Hero() {
 
   return (
     <header className={styles.hero} id="top" ref={root}>
-      <div className="container">
-        <span className={styles.eyebrow} data-intro>
-          <span className={styles.pulse} aria-hidden="true" />
-          {profile.role} · {profile.location}
-        </span>
+      <div className={`container ${styles.grid}`}>
+        <div className={styles.copy}>
+          <p className={styles.eyebrow} data-intro>
+            {profile.name} · {profile.role}
+          </p>
 
-        <h1 className={styles.headline} data-intro>
-          I build backend systems that <em>move data in real time</em>.
-        </h1>
+          <h1 className={styles.headline} data-intro>
+            I build backend systems that <span className={styles.accent}>move data in real time.</span>
+          </h1>
 
-        <p className={styles.summary} data-intro>
-          {profile.summary}
-        </p>
+          <p className={styles.summary} data-intro>
+            {profile.summary}
+          </p>
 
-        <div className={styles.actions} data-intro>
-          <a className={styles.primary} href="#contact">
-            Get in touch
-            <Arrow />
-          </a>
-          <a className={styles.secondary} href="#build">
-            See what I build
-            <Arrow />
-          </a>
+          <div className={styles.actions} data-intro>
+            <a className="btn btn-primary" href="#experience">
+              View experience
+              <Icon name="arrowRight" size={16} nudge />
+            </a>
+            <a className="btn btn-ghost" href="#contact">
+              Get in touch
+            </a>
+          </div>
+
+          <ul className={styles.meta} data-intro>
+            <li>
+              <Icon name="mapPin" size={16} />
+              {profile.location}
+            </li>
+            <li>
+              <a href={profile.github} target="_blank" rel="noreferrer">
+                <Icon name="github" size={15} />
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                <Icon name="linkedin" size={15} />
+                LinkedIn
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <p className={styles.meta} data-intro>
-          Currently {profile.role.toLowerCase()} at {profile.company}. Open to new work.
-        </p>
+        <div className={styles.visual} data-intro>
+          <SystemCard />
+        </div>
+      </div>
 
+      <div className="container">
         <dl className={styles.stats} data-intro>
           {stats.map((stat) => (
             <div className={styles.stat} key={stat.label}>
-              <dd className={styles.statValue}>{stat.value}</dd>
               <dt className={styles.statLabel}>{stat.label}</dt>
+              <dd className={styles.statValue}>{stat.value}</dd>
             </div>
           ))}
         </dl>

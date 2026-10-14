@@ -1,10 +1,9 @@
 import { useReveal } from './lib/motion';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
-import { Capabilities } from './components/Capabilities';
-import { Approach } from './components/Approach';
-import { Projects } from './components/Projects';
+import { Expertise } from './components/Expertise';
 import { Experience } from './components/Experience';
+import { Projects } from './components/Projects';
 import { Skills } from './components/Skills';
 import { Contact, Footer } from './components/Contact';
 
@@ -21,13 +20,10 @@ export default function App() {
       <Hero />
 
       <main id="main" ref={main}>
-        <div className="container">
-          <Capabilities />
-          <Approach />
-          <Projects />
-          <Experience />
-          <Skills />
-        </div>
+        <Expertise />
+        <Experience />
+        <Projects />
+        <Skills />
         <Contact />
       </main>
 

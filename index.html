@@ -3,9 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="theme-color" content="#fbfbfa" />
+    <meta name="color-scheme" content="light dark" />
 
-    <title>Faizan Ansari — Lead Software Developer</title>
+    <!-- Apply a saved theme before first paint so there is no flash. -->
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+
+    <title>Faizan Ansari — Lead Software Developer · Backend & Distributed Systems</title>
     <meta
       name="description"
       content="Faizan Ansari is a lead software developer in Dallas–Fort Worth building event-driven backend systems in Java and Spring Boot, Kafka, Redis, Apache Druid, and MySQL — and leading the team that ships them."
@@ -26,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
 

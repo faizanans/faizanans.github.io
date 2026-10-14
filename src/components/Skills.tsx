@@ -6,17 +6,19 @@ export function Skills() {
   return (
     <Section
       id="skills"
+      index="04"
       label="Toolkit"
       title="What I reach for"
-      lead="Used in production unless noted — this is the stack behind the work above, not a list of everything I have opened once."
+      lead="The stack behind the work above, and what I use in production. It is not a list of everything I have opened once."
+      tinted
     >
       <div className={styles.groups}>
         {skills.map((group) => (
-          <div className={`reveal ${styles.group}`} key={group.label}>
-            <span className={styles.label}>{group.label}</span>
-            <ul className={styles.items}>
+          <div className={`reveal card ${styles.group}`} key={group.label}>
+            <h3 className={styles.label}>{group.label}</h3>
+            <ul className="chips">
               {group.items.map((item) => (
-                <li className={styles.chip} key={item}>
+                <li className="chip" key={item}>
                   {item}
                 </li>
               ))}
