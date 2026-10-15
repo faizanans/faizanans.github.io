@@ -27,7 +27,7 @@ export function Contact() {
       <div className="container">
         <div className={`reveal card ${styles.panel}`}>
           <span className={styles.label}>
-            <span className={styles.index}>05</span>
+            <span className={styles.index}>04</span>
             Contact
           </span>
           <h2 className={styles.title} id="contact-title">

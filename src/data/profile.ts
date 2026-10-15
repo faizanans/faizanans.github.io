@@ -3,10 +3,25 @@
  * Components render this; nothing else hardcodes copy.
  */
 
+import type { SimpleIcon } from 'simple-icons';
+import {
+  siApachedruid,
+  siApachekafka,
+  siDocker,
+  siGit,
+  siGo,
+  siKubernetes,
+  siMysql,
+  siOpenjdk,
+  siPython,
+  siReact,
+  siRedis,
+  siSpringboot,
+} from 'simple-icons';
+
 export const profile = {
   name: 'Faizan Ansari',
   role: 'Lead Software Developer',
-  focus: 'Backend & distributed systems',
   company: 'Plasma',
   location: 'Dallas–Fort Worth, TX',
   email: 'faizanansari1220@gmail.com',
@@ -14,7 +29,7 @@ export const profile = {
   github: 'https://github.com/faizanans',
   linkedin: 'https://www.linkedin.com/in/faizanansari786/',
   summary:
-    'I design and run event-driven services in Java and Spring Boot on Kafka, Redis, Apache Druid and MySQL. I build them so other people can operate them, not just launch them. I have spent six years writing production backends, and today I lead the engineering team that ships them.',
+    'I have spent six years building event-driven backends in Java and Spring Boot, and today I lead the engineering team at Plasma that ships them.',
 } as const;
 
 /** Headline figures shown under the hero. */
@@ -27,69 +42,42 @@ export const stats: readonly Stat[] = [
   { value: '6+', label: 'Years building production backends' },
   { value: '3+', label: 'Years leading an engineering team' },
   { value: '9+', label: 'Years in technology' },
-  { value: 'B.S.', label: 'Software Engineering, UT Dallas' },
 ];
 
-/** What I build. Each names the work and the concrete pieces that come out of it. */
-export type IconName = 'server' | 'stream' | 'chart' | 'layers';
-
-export interface Capability {
-  title: string;
-  body: string;
-  deliverables: readonly string[];
-  icon: IconName;
+/** Technologies I have used in production, shown as logo tiles. */
+export interface Tech {
+  name: string;
+  category: string;
+  icon: SimpleIcon;
 }
 
-export const capabilities: readonly Capability[] = [
-  {
-    title: 'Event-driven systems',
-    body: 'Services that talk to each other in real time instead of in nightly batches. I build Kafka pipelines with a set throughput budget and plan how each one handles failure.',
-    deliverables: ['Kafka pipelines', 'Service integration', 'Scheduled jobs', 'Data sync'],
-    icon: 'stream',
-  },
-  {
-    title: 'Backend & API platforms',
-    body: 'The engine behind a product: a documented API, a data model that holds up under change, and the business logic the operation runs on.',
-    deliverables: ['REST APIs', 'Schema design', 'Auth & permissions', 'Observability'],
-    icon: 'server',
-  },
-  {
-    title: 'Data & analytics',
-    body: 'High-volume ingestion and the reporting layer on top of it, on the same Druid and Redis stack I run at scale every day.',
-    deliverables: ['Ingestion', 'Analytics store', 'Dashboards', 'Alerting'],
-    icon: 'chart',
-  },
-  {
-    title: 'Full-stack delivery',
-    body: 'Internal tools or customer-facing products, built end to end: React on the front, Spring Boot behind it, deployed to a URL that stays up.',
-    deliverables: ['React frontends', 'CI/CD', 'Containers', 'Handover docs'],
-    icon: 'layers',
-  },
+export const stack: readonly Tech[] = [
+  // Java has no official mark in Simple Icons (trademark), so OpenJDK's stands in.
+  { name: 'Java', category: 'Language', icon: siOpenjdk },
+  { name: 'Spring Boot', category: 'Framework', icon: siSpringboot },
+  { name: 'Apache Kafka', category: 'Messaging', icon: siApachekafka },
+  { name: 'Redis', category: 'Cache & state', icon: siRedis },
+  { name: 'Apache Druid', category: 'Analytics', icon: siApachedruid },
+  { name: 'MySQL', category: 'Database', icon: siMysql },
+  { name: 'Go', category: 'Language', icon: siGo },
+  { name: 'Python', category: 'Language', icon: siPython },
+  { name: 'Docker', category: 'Containers', icon: siDocker },
+  { name: 'Kubernetes', category: 'Orchestration', icon: siKubernetes },
+  { name: 'React', category: 'Frontend', icon: siReact },
+  { name: 'Git', category: 'Version control', icon: siGit },
 ];
 
-/** How the work gets done. */
-export interface Principle {
-  title: string;
-  body: string;
-}
-
-export const approach: readonly Principle[] = [
-  {
-    title: 'Scope before code',
-    body: 'I write down what gets built, and what explicitly does not, in plain language first. Every disagreement costs less here than in a pull request.',
-  },
-  {
-    title: 'Built to be operated',
-    body: 'A service is finished when someone else can diagnose it at 3am. That takes structured logs and honest health checks, and I write the failure paths before the happy path.',
-  },
-  {
-    title: 'Reviews that teach',
-    body: 'A review comment that explains the reasoning helps more than one that only blocks the merge. That habit is how a team grows its seniors.',
-  },
-  {
-    title: 'Documented handover',
-    body: 'I hand over the repository, the deployment, and the reasoning behind both. Nothing important should live only in one person’s head.',
-  },
+/** Skills without a logo, listed under the tiles. */
+export const practices: readonly string[] = [
+  'REST APIs',
+  'Event-driven architecture',
+  'WebSocket',
+  'SQL',
+  'CI/CD',
+  'Agile / Scrum',
+  'Technical direction',
+  'Code review',
+  'Mentoring',
 ];
 
 /** Career timeline, newest first. */
@@ -196,24 +184,6 @@ export const projects: readonly Project[] = [
   },
 ];
 
-/** Skills, grouped. */
-export interface SkillGroup {
-  label: string;
-  items: readonly string[];
-}
-
-export const skills: readonly SkillGroup[] = [
-  { label: 'Languages', items: ['Java', 'Go', 'Python', 'SQL'] },
-  {
-    label: 'Backend',
-    items: ['Spring Boot', 'Spring', 'REST APIs', 'WebSocket', 'Event-driven architecture'],
-  },
-  { label: 'Data & messaging', items: ['Apache Kafka', 'Redis', 'Apache Druid', 'MySQL'] },
-  { label: 'Platform & delivery', items: ['Docker', 'Kubernetes', 'CI/CD', 'Git', 'Agile / Scrum'] },
-  { label: 'Leadership', items: ['Technical direction', 'Code review', 'Mentoring', 'Delivery planning'] },
-  { label: 'Frontend', items: ['React', 'HTML & CSS'] },
-];
-
 /** Sticky-nav sections. Order defines both nav order and scroll-spy order. */
 export interface NavSection {
   id: string;
@@ -221,9 +191,8 @@ export interface NavSection {
 }
 
 export const navSections: readonly NavSection[] = [
-  { id: 'expertise', label: 'Expertise' },
+  { id: 'stack', label: 'Stack' },
   { id: 'experience', label: 'Experience' },
   { id: 'work', label: 'Work' },
-  { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ];

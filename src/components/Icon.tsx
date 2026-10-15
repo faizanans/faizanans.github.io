@@ -27,22 +27,6 @@ const stroke: Record<string, ReactNode> = {
     </>
   ),
   check: <path d="m5 12.5 4.5 4.5L19 7" />,
-  mapPin: (
-    <>
-      <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
-      <circle cx="12" cy="10" r="2.5" />
-    </>
-  ),
-  server: (
-    <>
-      <rect x="3" y="4" width="18" height="7" rx="2" />
-      <rect x="3" y="13" width="18" height="7" rx="2" />
-      <path d="M7 7.5h.01M7 16.5h.01" />
-    </>
-  ),
-  stream: <path d="M3 12h4l3-8 4 16 3-8h4" />,
-  chart: <path d="M3 20h18M7 16v-5M12 16V6M17 16V9" />,
-  layers: <path d="m12 2 10 5-10 5L2 7zM2 12l10 5 10-5M2 17l10 5 10-5" />,
 };
 
 const filled: Record<string, string> = {
